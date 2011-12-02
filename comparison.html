@@ -48,11 +48,11 @@ VxWorks</b>  </td></tr>
 <tr>
 <td><b>Logically Combined Events</b> </td><td>Yes </td><td>Yes </td><td>Yes  </td></tr>
 <tr>
-<td><b>Named Threads</b> </td><td>Yes </td><td>Parital see <a class="el" href="imunit.html#named_threads_pthread">Named Threads in pthreads</a> </td><td>Parital see <a class="el" href="imunit.html#named_threads_vxworks">Named Threads in VxWorks</a>  </td></tr>
+<td><b>Named Threads</b> </td><td>Yes </td><td>Parital see <a class="el" href="comparison.html#named_threads_pthread">Named Threads in pthreads</a> </td><td>Parital see <a class="el" href="comparison.html#named_threads_vxworks">Named Threads in VxWorks</a>  </td></tr>
 <tr>
-<td><b>Block Events</b> </td><td>Yes </td><td>No see <a class="el" href="imunit.html#block_pthreads">Block Events in pthreads</a> </td><td>No see <a class="el" href="imunit.html#block_vxworks">Block Events in VxWorks</a>  </td></tr>
+<td><b>Block Events</b> </td><td>Yes </td><td>No see <a class="el" href="comparison.html#block_pthreads">Block Events in pthreads</a> </td><td>No see <a class="el" href="comparison.html#block_vxworks">Block Events in VxWorks</a>  </td></tr>
 <tr>
-<td><b>Deadlock Detection</b> </td><td>Yes </td><td>No see <a class="el" href="imunit.html#deadlock_pthreads_vxworks">Deadlock Detection in ptheads / VxWorks</a> </td><td>No see <a class="el" href="imunit.html#deadlock_pthreads_vxworks">Deadlock Detection in ptheads / VxWorks</a>  </td></tr>
+<td><b>Deadlock Detection</b> </td><td>Yes </td><td>No see <a class="el" href="comparison.html#deadlock_pthreads_vxworks">Deadlock Detection in ptheads / VxWorks</a> </td><td>No see <a class="el" href="comparison.html#deadlock_pthreads_vxworks">Deadlock Detection in ptheads / VxWorks</a>  </td></tr>
 </table>
 <h2><a class="anchor" id="named_threads_pthread"></a>
 Named Threads in pthreads</h2>
@@ -93,7 +93,7 @@ Block Events in VxWorks</h2>
 Deadlock Detection in ptheads / VxWorks</h2>
 <p>Currently deadlock detection isn't implemented in pthreads or VxWorks due to technical limitations. I suspect that in Java, the JVM is able to identify all threads associated with an applications and identify if they are blocked or not. The first challenge is that neither ptheads nor VxWorks has the capability of identifying which collection of threads are associated with an application. This may be worked around by configuring the environment with the thread identifiers/thread name of relevant tasks, but this seems to be a rather significant hinderance to the use of CIMUnit. The second challenge is that there is no way to determine if a pthread task is blocked. </p>
 </div></div>
-<hr class="footer"/><address class="footer"><small>Generated on Thu Dec 1 2011 21:40:58 for CIMUnit by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Dec 1 2011 22:05:25 for CIMUnit by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>
