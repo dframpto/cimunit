@@ -222,6 +222,10 @@ Functions</h2></td></tr>
     <a class="code" href="structcimunit__event.html" title="Structure defining a CIMUnit event.">cimunit_event_t</a> *event;
     <span class="keyword">const</span> <a class="code" href="structcimunit__event__list.html" title="Structure which maintains a list of events.">cimunit_event_list_t</a> *next_action;
 
+    <span class="keywordflow">if</span> (!schedule) {
+      <span class="keywordflow">return</span> <a class="code" href="cimunit__platform__darwin_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a>;
+    }
+    
     thread_name = <a class="code" href="group__cimunit__schedule.html#ga716f7c2a8496e2f1e362249ded8cfb64">cimunit_schedule_get_thread_name</a>(schedule,
                                                    <a class="code" href="group__cimunit__thread.html#gac9b57c4e9446524146f04f224bd4f684">cimunit_thread_self</a>());
 
@@ -294,9 +298,14 @@ Functions</h2></td></tr>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>pointer to the name of the thread </dd></dl>
 
-<p>Definition at line <a class="el" href="cimunit__schedule_8c_source.html#l00109">109</a> of file <a class="el" href="cimunit__schedule_8c_source.html">cimunit_schedule.c</a>.</p>
+<p>Definition at line <a class="el" href="cimunit__schedule_8c_source.html#l00116">116</a> of file <a class="el" href="cimunit__schedule_8c_source.html">cimunit_schedule.c</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keyword">const</span> <span class="keywordtype">char</span> *thread_name;
+    
+    <span class="keywordflow">if</span> (!schedule) {
+      <span class="keywordflow">return</span> NULL;
+    }
+    
     <a class="code" href="group__cimunit__thread__table.html#ga45c85fba836119a234c7cd6b3229ee19">cimunit_get_thread_name</a>(&amp;schedule-&gt;<a class="code" href="structcimunit__schedule.html#a3cae30091e4b0b7f853336e77d9a43a2" title="Table used for thread lookups.">thread_table</a>, thread, &amp;thread_name);
 
     <span class="keywordflow">return</span> thread_name;
@@ -443,8 +452,11 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="cimunit__schedule_8c_source.html#l00099">99</a> of file <a class="el" href="cimunit__schedule_8c_source.html">cimunit_schedule.c</a>.</p>
+<p>Definition at line <a class="el" href="cimunit__schedule_8c_source.html#l00103">103</a> of file <a class="el" href="cimunit__schedule_8c_source.html">cimunit_schedule.c</a>.</p>
 <div class="fragment"><pre class="fragment">{
+    <span class="keywordflow">if</span> (!schedule) {
+      <span class="keywordflow">return</span>;
+    }
     <a class="code" href="group__cimunit__mutex.html#ga952779f6b5b0d1bae6e0af1163679adc">cimunit_mutex_lock</a>(&amp;schedule-&gt;<a class="code" href="structcimunit__schedule.html#aaad745fdf29f82bf36d0a42190671150" title="Mutex to synchronize operations on the schedule object.">mutex</a>);
     <a class="code" href="group__cimunit__thread__table.html#ga32a593395206887e630a99be5eafe37b">cimunit_set_thread_name</a>(&amp;schedule-&gt;<a class="code" href="structcimunit__schedule.html#a3cae30091e4b0b7f853336e77d9a43a2" title="Table used for thread lookups.">thread_table</a>, thread, threadName);                                      
     <a class="code" href="group__cimunit__mutex.html#ga966f0bdd952ca4b90a01246a86f93dc2">cimunit_mutex_unlock</a>(&amp;schedule-&gt;<a class="code" href="structcimunit__schedule.html#aaad745fdf29f82bf36d0a42190671150" title="Mutex to synchronize operations on the schedule object.">mutex</a>);
@@ -453,8 +465,10 @@ Functions</h2></td></tr>
 </div>
 </div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Thu Dec 1 2011 22:24:48 for CIMUnit by&#160;
-<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+
+
+<hr class="footer"/><address class="footer"><small>
+Generated for CIMUnit by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4</small></address>
+
 </body>
 </html>

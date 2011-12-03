@@ -46,7 +46,7 @@ VxWorks</b>  </td></tr>
 <tr>
 <td><b>Basic Events</b> </td><td>Yes </td><td>Yes </td><td>Yes  </td></tr>
 <tr>
-<td><b>Logically Combined Events</b> </td><td>Yes </td><td>Yes </td><td>Yes  </td></tr>
+<td><b>Logically Combined Events</b> </td><td>No </td><td>Yes see <a class="el" href="comparison.html#logically_combined_events">Logically Combined Events</a> </td><td>Yes see <a class="el" href="comparison.html#logically_combined_events">Logically Combined Events</a>  </td></tr>
 <tr>
 <td><b>Named Threads</b> </td><td>Yes </td><td>Parital see <a class="el" href="comparison.html#named_threads_pthread">Named Threads in pthreads</a> </td><td>Parital see <a class="el" href="comparison.html#named_threads_vxworks">Named Threads in VxWorks</a>  </td></tr>
 <tr>
@@ -54,6 +54,19 @@ VxWorks</b>  </td></tr>
 <tr>
 <td><b>Deadlock Detection</b> </td><td>Yes </td><td>No see <a class="el" href="comparison.html#deadlock_pthreads_vxworks">Deadlock Detection in ptheads / VxWorks</a> </td><td>No see <a class="el" href="comparison.html#deadlock_pthreads_vxworks">Deadlock Detection in ptheads / VxWorks</a>  </td></tr>
 </table>
+<h2><a class="anchor" id="logically_combined_events"></a>
+Logically Combined Events</h2>
+<p>CIMUnit supports the use of the logical operators || and &amp;&amp; to combine condition events used to trigger action events. Ordering is from left to right and can be modified by the use of ()'s. This allows schedules such as the following:</p>
+<ul>
+<li>a &amp;&amp; b -&gt; c<ul>
+<li>Event a and event b must have fired before the firing of event c is allowed.</li>
+</ul>
+</li>
+<li>a || (b &amp;&amp; c) -&gt; d<ul>
+<li>Event a must fire or both events b and c must have fired before the firing of event d is allowed.</li>
+</ul>
+</li>
+</ul>
 <h2><a class="anchor" id="named_threads_pthread"></a>
 Named Threads in pthreads</h2>
 <p>Pthreads doesn't support a standard way to name threads. There is a collection of non-portable calls that allow applications to name threads, but at least one modern implementation of Linux (centos) doesn't support those methods. It is possible to autodetect at compile time which pthread capabilities exist, however, the test code would need to be written to not rely upon thead names being picked up from the operating system.</p>
@@ -93,8 +106,10 @@ Block Events in VxWorks</h2>
 Deadlock Detection in ptheads / VxWorks</h2>
 <p>Currently deadlock detection isn't implemented in pthreads or VxWorks due to technical limitations. I suspect that in Java, the JVM is able to identify all threads associated with an applications and identify if they are blocked or not. The first challenge is that neither ptheads nor VxWorks has the capability of identifying which collection of threads are associated with an application. This may be worked around by configuring the environment with the thread identifiers/thread name of relevant tasks, but this seems to be a rather significant hinderance to the use of CIMUnit. The second challenge is that there is no way to determine if a pthread task is blocked. </p>
 </div></div>
-<hr class="footer"/><address class="footer"><small>Generated on Thu Dec 1 2011 22:24:48 for CIMUnit by&#160;
-<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+
+
+<hr class="footer"/><address class="footer"><small>
+Generated for CIMUnit by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4</small></address>
+
 </body>
 </html>

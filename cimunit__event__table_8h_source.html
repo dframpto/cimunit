@@ -51,61 +51,71 @@
 <a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="cimunit__thread_8h.html">cimunit_thread.h</a>&quot;</span>
 <a name="l00028"></a>00028 <span class="preprocessor">#include &quot;<a class="code" href="cimunit__thread__table_8h.html">cimunit_thread_table.h</a>&quot;</span>
 <a name="l00029"></a>00029 
-<a name="l00032"></a>00032 
-<a name="l00034"></a><a class="code" href="structevent__table__entry.html">00034</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structevent__table__entry.html" title="Structure defining a CIMUnit event table entry.">event_table_entry</a>{
-<a name="l00036"></a><a class="code" href="structevent__table__entry.html#a1422ab20b6cdcb1d372c7901c280e001">00036</a>   <a class="code" href="structcimunit__event.html" title="Structure defining a CIMUnit event.">cimunit_event_t</a> *<a class="code" href="structevent__table__entry.html#a1422ab20b6cdcb1d372c7901c280e001" title="The a pointer to the event that is being represented by this entry.">event</a>;
-<a name="l00037"></a>00037 
-<a name="l00039"></a><a class="code" href="structevent__table__entry.html#a50650adc3d7b3be49e0a8db405a4eec2">00039</a>   <a class="code" href="cimunit__thread__pthread_8h.html#a2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a> <a class="code" href="structevent__table__entry.html#a50650adc3d7b3be49e0a8db405a4eec2" title="The thread id of the thread that fired the event.">thread</a>;
-<a name="l00040"></a>00040 
-<a name="l00044"></a><a class="code" href="structevent__table__entry.html#abdc10c895d38e864ef5353fe8e9ab8bd">00044</a>   <span class="keyword">struct </span><a class="code" href="structevent__table__entry.html" title="Structure defining a CIMUnit event table entry.">event_table_entry</a> *<a class="code" href="structevent__table__entry.html#abdc10c895d38e864ef5353fe8e9ab8bd">next</a>;
-<a name="l00045"></a>00045 } <a class="code" href="group__cimunit__event__table.html#gac02fb8cf021c8279b4820d789c4141a6" title="Structure defining a CIMUnit event table entry.">cimunit_event_table_entry_t</a>;
-<a name="l00046"></a>00046 
-<a name="l00051"></a><a class="code" href="structcimunit__event__table.html">00051</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structcimunit__event__table.html" title="Structure containing which events have been fired.">cimunit_event_table</a> {
-<a name="l00052"></a>00052 
-<a name="l00054"></a><a class="code" href="structcimunit__event__table.html#ae0aec94fcd8bf68767e1cb7a65befbef">00054</a>   <a class="code" href="structevent__table__entry.html" title="Structure defining a CIMUnit event table entry.">cimunit_event_table_entry_t</a> *<a class="code" href="structcimunit__event__table.html#ae0aec94fcd8bf68767e1cb7a65befbef" title="The head table entry. Is initially NULL.">head</a>;
-<a name="l00055"></a>00055 
-<a name="l00057"></a><a class="code" href="structcimunit__event__table.html#a772c663818c9fc73047374a6f91934ae">00057</a>   <a class="code" href="structevent__table__entry.html" title="Structure defining a CIMUnit event table entry.">cimunit_event_table_entry_t</a> *<a class="code" href="structcimunit__event__table.html#a772c663818c9fc73047374a6f91934ae" title="The tail table entry. Is initially NULL.">tail</a>;
-<a name="l00058"></a>00058 
-<a name="l00060"></a><a class="code" href="structcimunit__event__table.html#a954075a20378f4ca18c4751a8d8fcc5b">00060</a>   <span class="keyword">const</span> <a class="code" href="structcimunit__thread__table.html" title="Structure serving as the entry point for the thread name list.">cimunit_thread_table_t</a> *<a class="code" href="structcimunit__event__table.html#a954075a20378f4ca18c4751a8d8fcc5b" title="The thread table to use for thread name lookups.">thread_table</a>;
-<a name="l00061"></a>00061 
-<a name="l00064"></a><a class="code" href="structcimunit__event__table.html#aced26bafc1ef6d633870fdb238913b90">00064</a>   <a class="code" href="cimunit__mutex__pthread_8h.html#a55879c2113e9a2074ebbb10f19952ba7">cimunit_mutex_t</a> <a class="code" href="structcimunit__event__table.html#aced26bafc1ef6d633870fdb238913b90">lock</a>;
-<a name="l00065"></a>00065 } <a class="code" href="group__cimunit__event__table.html#gab7bffaac5d5eebc1daadb396144df280" title="Structure containing which events have been fired.">cimunit_event_table_t</a>;
-<a name="l00066"></a>00066 
-<a name="l00067"></a>00067 
-<a name="l00073"></a>00073 <span class="keywordtype">int</span> <a class="code" href="group__cimunit__event__table.html#gac6fc553576c8e388bce3ba9b28dcd41e">cimunit_event_table_entry_init</a>(
-<a name="l00074"></a>00074   <a class="code" href="structevent__table__entry.html" title="Structure defining a CIMUnit event table entry.">cimunit_event_table_entry_t</a> *entry,
-<a name="l00075"></a>00075   <a class="code" href="structcimunit__event.html" title="Structure defining a CIMUnit event.">cimunit_event_t</a> *event);
-<a name="l00076"></a>00076 
-<a name="l00081"></a>00081 <span class="keywordtype">int</span> <a class="code" href="group__cimunit__event__table.html#ga707738ee69f0749390a24be327a5a02f">cimunit_event_table_entry_destroy</a>(<a class="code" href="structevent__table__entry.html" title="Structure defining a CIMUnit event table entry.">cimunit_event_table_entry_t</a> *entry);
-<a name="l00082"></a>00082 
-<a name="l00088"></a>00088 <span class="keywordtype">int</span> <a class="code" href="group__cimunit__event__table.html#ga5c64ebe9c119d694fdac456ad5adf6e1">cimunit_event_table_init</a>(
-<a name="l00089"></a>00089   <a class="code" href="structcimunit__event__table.html" title="Structure containing which events have been fired.">cimunit_event_table_t</a> *event_table, 
-<a name="l00090"></a>00090   <span class="keyword">const</span> <a class="code" href="structcimunit__thread__table.html" title="Structure serving as the entry point for the thread name list.">cimunit_thread_table_t</a> *thread_table);
-<a name="l00091"></a>00091 
-<a name="l00096"></a>00096 <span class="keywordtype">int</span> <a class="code" href="group__cimunit__event__table.html#gae7972ffe2d4e518368ca090a75303a12">cimunit_event_table_destroy</a>(<a class="code" href="structcimunit__event__table.html" title="Structure containing which events have been fired.">cimunit_event_table_t</a> *event_table);
-<a name="l00097"></a>00097 
-<a name="l00105"></a>00105 <span class="keywordtype">int</span> <a class="code" href="group__cimunit__event__table.html#ga2d231d125ae12c4a2729f9e524588cbd">cimunit_add_event_to_table</a>(
-<a name="l00106"></a>00106   <a class="code" href="structcimunit__event__table.html" title="Structure containing which events have been fired.">cimunit_event_table_t</a> *event_table,
-<a name="l00107"></a>00107   <a class="code" href="structcimunit__event.html" title="Structure defining a CIMUnit event.">cimunit_event_t</a> *event,
-<a name="l00108"></a>00108   <a class="code" href="structevent__table__entry.html" title="Structure defining a CIMUnit event table entry.">cimunit_event_table_entry_t</a> **entry_added);
-<a name="l00109"></a>00109 
-<a name="l00120"></a>00120 <span class="keywordtype">int</span> <a class="code" href="group__cimunit__event__table.html#ga8c0de068f75c23172e5213f67c28639d">cimunit_find_event_in_table</a>(
-<a name="l00121"></a>00121   <span class="keyword">const</span> <a class="code" href="structcimunit__event__table.html" title="Structure containing which events have been fired.">cimunit_event_table_t</a> *event_table,
-<a name="l00122"></a>00122   <span class="keyword">const</span> <span class="keywordtype">char</span> *event_name,
-<a name="l00123"></a>00123   <a class="code" href="structevent__table__entry.html" title="Structure defining a CIMUnit event table entry.">cimunit_event_table_entry_t</a> **found_event);
-<a name="l00124"></a>00124 
-<a name="l00138"></a>00138 <span class="keywordtype">int</span> <a class="code" href="group__cimunit__event__table.html#gacba93a9086c5439126d91c7e0e969b66">cimunit_find_event_in_table_on_thread</a>(
-<a name="l00139"></a>00139   <span class="keyword">const</span> <a class="code" href="structcimunit__event__table.html" title="Structure containing which events have been fired.">cimunit_event_table_t</a> *event_table,
-<a name="l00140"></a>00140   <span class="keyword">const</span> <span class="keywordtype">char</span> *event_name,
-<a name="l00141"></a>00141   <span class="keyword">const</span> <span class="keywordtype">char</span> *thread_name,
-<a name="l00142"></a>00142   <a class="code" href="structevent__table__entry.html" title="Structure defining a CIMUnit event table entry.">cimunit_event_table_entry_t</a> **found_event);
-<a name="l00143"></a>00143 
-<a name="l00145"></a>00145 
-<a name="l00146"></a>00146 <span class="preprocessor">#endif</span>
+<a name="l00030"></a>00030 <span class="preprocessor">#ifdef __cplusplus</span>
+<a name="l00031"></a>00031 <span class="preprocessor"></span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {
+<a name="l00032"></a>00032 <span class="preprocessor">#endif</span>
+<a name="l00033"></a>00033 <span class="preprocessor"></span>
+<a name="l00036"></a>00036 
+<a name="l00038"></a><a class="code" href="structevent__table__entry.html">00038</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structevent__table__entry.html" title="Structure defining a CIMUnit event table entry.">event_table_entry</a>{
+<a name="l00040"></a><a class="code" href="structevent__table__entry.html#a1422ab20b6cdcb1d372c7901c280e001">00040</a>   <a class="code" href="structcimunit__event.html" title="Structure defining a CIMUnit event.">cimunit_event_t</a> *<a class="code" href="structevent__table__entry.html#a1422ab20b6cdcb1d372c7901c280e001" title="The a pointer to the event that is being represented by this entry.">event</a>;
+<a name="l00041"></a>00041 
+<a name="l00043"></a><a class="code" href="structevent__table__entry.html#a50650adc3d7b3be49e0a8db405a4eec2">00043</a>   <a class="code" href="cimunit__thread__pthread_8h.html#a2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a> <a class="code" href="structevent__table__entry.html#a50650adc3d7b3be49e0a8db405a4eec2" title="The thread id of the thread that fired the event.">thread</a>;
+<a name="l00044"></a>00044 
+<a name="l00048"></a><a class="code" href="structevent__table__entry.html#abdc10c895d38e864ef5353fe8e9ab8bd">00048</a>   <span class="keyword">struct </span><a class="code" href="structevent__table__entry.html" title="Structure defining a CIMUnit event table entry.">event_table_entry</a> *<a class="code" href="structevent__table__entry.html#abdc10c895d38e864ef5353fe8e9ab8bd">next</a>;
+<a name="l00049"></a>00049 } <a class="code" href="group__cimunit__event__table.html#gac02fb8cf021c8279b4820d789c4141a6" title="Structure defining a CIMUnit event table entry.">cimunit_event_table_entry_t</a>;
+<a name="l00050"></a>00050 
+<a name="l00055"></a><a class="code" href="structcimunit__event__table.html">00055</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structcimunit__event__table.html" title="Structure containing which events have been fired.">cimunit_event_table</a> {
+<a name="l00056"></a>00056 
+<a name="l00058"></a><a class="code" href="structcimunit__event__table.html#ae0aec94fcd8bf68767e1cb7a65befbef">00058</a>   <a class="code" href="structevent__table__entry.html" title="Structure defining a CIMUnit event table entry.">cimunit_event_table_entry_t</a> *<a class="code" href="structcimunit__event__table.html#ae0aec94fcd8bf68767e1cb7a65befbef" title="The head table entry. Is initially NULL.">head</a>;
+<a name="l00059"></a>00059 
+<a name="l00061"></a><a class="code" href="structcimunit__event__table.html#a772c663818c9fc73047374a6f91934ae">00061</a>   <a class="code" href="structevent__table__entry.html" title="Structure defining a CIMUnit event table entry.">cimunit_event_table_entry_t</a> *<a class="code" href="structcimunit__event__table.html#a772c663818c9fc73047374a6f91934ae" title="The tail table entry. Is initially NULL.">tail</a>;
+<a name="l00062"></a>00062 
+<a name="l00064"></a><a class="code" href="structcimunit__event__table.html#a954075a20378f4ca18c4751a8d8fcc5b">00064</a>   <span class="keyword">const</span> <a class="code" href="structcimunit__thread__table.html" title="Structure serving as the entry point for the thread name list.">cimunit_thread_table_t</a> *<a class="code" href="structcimunit__event__table.html#a954075a20378f4ca18c4751a8d8fcc5b" title="The thread table to use for thread name lookups.">thread_table</a>;
+<a name="l00065"></a>00065 
+<a name="l00068"></a><a class="code" href="structcimunit__event__table.html#aced26bafc1ef6d633870fdb238913b90">00068</a>   <a class="code" href="cimunit__mutex__pthread_8h.html#a55879c2113e9a2074ebbb10f19952ba7">cimunit_mutex_t</a> <a class="code" href="structcimunit__event__table.html#aced26bafc1ef6d633870fdb238913b90">lock</a>;
+<a name="l00069"></a>00069 } <a class="code" href="group__cimunit__event__table.html#gab7bffaac5d5eebc1daadb396144df280" title="Structure containing which events have been fired.">cimunit_event_table_t</a>;
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071 
+<a name="l00077"></a>00077 <span class="keywordtype">int</span> <a class="code" href="group__cimunit__event__table.html#gac6fc553576c8e388bce3ba9b28dcd41e">cimunit_event_table_entry_init</a>(
+<a name="l00078"></a>00078   <a class="code" href="structevent__table__entry.html" title="Structure defining a CIMUnit event table entry.">cimunit_event_table_entry_t</a> *entry,
+<a name="l00079"></a>00079   <a class="code" href="structcimunit__event.html" title="Structure defining a CIMUnit event.">cimunit_event_t</a> *event);
+<a name="l00080"></a>00080 
+<a name="l00085"></a>00085 <span class="keywordtype">int</span> <a class="code" href="group__cimunit__event__table.html#ga707738ee69f0749390a24be327a5a02f">cimunit_event_table_entry_destroy</a>(<a class="code" href="structevent__table__entry.html" title="Structure defining a CIMUnit event table entry.">cimunit_event_table_entry_t</a> *entry);
+<a name="l00086"></a>00086 
+<a name="l00092"></a>00092 <span class="keywordtype">int</span> <a class="code" href="group__cimunit__event__table.html#ga5c64ebe9c119d694fdac456ad5adf6e1">cimunit_event_table_init</a>(
+<a name="l00093"></a>00093   <a class="code" href="structcimunit__event__table.html" title="Structure containing which events have been fired.">cimunit_event_table_t</a> *event_table, 
+<a name="l00094"></a>00094   <span class="keyword">const</span> <a class="code" href="structcimunit__thread__table.html" title="Structure serving as the entry point for the thread name list.">cimunit_thread_table_t</a> *thread_table);
+<a name="l00095"></a>00095 
+<a name="l00100"></a>00100 <span class="keywordtype">int</span> <a class="code" href="group__cimunit__event__table.html#gae7972ffe2d4e518368ca090a75303a12">cimunit_event_table_destroy</a>(<a class="code" href="structcimunit__event__table.html" title="Structure containing which events have been fired.">cimunit_event_table_t</a> *event_table);
+<a name="l00101"></a>00101 
+<a name="l00109"></a>00109 <span class="keywordtype">int</span> <a class="code" href="group__cimunit__event__table.html#ga2d231d125ae12c4a2729f9e524588cbd">cimunit_add_event_to_table</a>(
+<a name="l00110"></a>00110   <a class="code" href="structcimunit__event__table.html" title="Structure containing which events have been fired.">cimunit_event_table_t</a> *event_table,
+<a name="l00111"></a>00111   <a class="code" href="structcimunit__event.html" title="Structure defining a CIMUnit event.">cimunit_event_t</a> *event,
+<a name="l00112"></a>00112   <a class="code" href="structevent__table__entry.html" title="Structure defining a CIMUnit event table entry.">cimunit_event_table_entry_t</a> **entry_added);
+<a name="l00113"></a>00113 
+<a name="l00124"></a>00124 <span class="keywordtype">int</span> <a class="code" href="group__cimunit__event__table.html#ga8c0de068f75c23172e5213f67c28639d">cimunit_find_event_in_table</a>(
+<a name="l00125"></a>00125   <span class="keyword">const</span> <a class="code" href="structcimunit__event__table.html" title="Structure containing which events have been fired.">cimunit_event_table_t</a> *event_table,
+<a name="l00126"></a>00126   <span class="keyword">const</span> <span class="keywordtype">char</span> *event_name,
+<a name="l00127"></a>00127   <a class="code" href="structevent__table__entry.html" title="Structure defining a CIMUnit event table entry.">cimunit_event_table_entry_t</a> **found_event);
+<a name="l00128"></a>00128 
+<a name="l00142"></a>00142 <span class="keywordtype">int</span> <a class="code" href="group__cimunit__event__table.html#gacba93a9086c5439126d91c7e0e969b66">cimunit_find_event_in_table_on_thread</a>(
+<a name="l00143"></a>00143   <span class="keyword">const</span> <a class="code" href="structcimunit__event__table.html" title="Structure containing which events have been fired.">cimunit_event_table_t</a> *event_table,
+<a name="l00144"></a>00144   <span class="keyword">const</span> <span class="keywordtype">char</span> *event_name,
+<a name="l00145"></a>00145   <span class="keyword">const</span> <span class="keywordtype">char</span> *thread_name,
+<a name="l00146"></a>00146   <a class="code" href="structevent__table__entry.html" title="Structure defining a CIMUnit event table entry.">cimunit_event_table_entry_t</a> **found_event);
+<a name="l00147"></a>00147 
+<a name="l00149"></a>00149 
+<a name="l00150"></a>00150 <span class="preprocessor">#ifdef __cplusplus</span>
+<a name="l00151"></a>00151 <span class="preprocessor"></span>}
+<a name="l00152"></a>00152 <span class="preprocessor">#endif</span>
+<a name="l00153"></a>00153 <span class="preprocessor"></span>
+<a name="l00154"></a>00154 <span class="preprocessor">#endif</span>
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Thu Dec 1 2011 22:24:48 for CIMUnit by&#160;
-<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+
+
+<hr class="footer"/><address class="footer"><small>
+Generated for CIMUnit by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4</small></address>
+
 </body>
 </html>

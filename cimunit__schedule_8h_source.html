@@ -52,63 +52,73 @@
 <a name="l00028"></a>00028 <span class="preprocessor">#include &quot;<a class="code" href="cimunit__platform_8h.html">cimunit_platform.h</a>&quot;</span>
 <a name="l00029"></a>00029 <span class="preprocessor">#include &quot;<a class="code" href="cimunit__thread_8h.html">cimunit_thread.h</a>&quot;</span>
 <a name="l00030"></a>00030 
-<a name="l00031"></a><a class="code" href="cimunit__schedule_8h.html#ab85c6766772563221627125ea100d6c6">00031</a> <span class="keyword">typedef</span> <span class="keywordtype">size_t</span> <a class="code" href="cimunit__schedule_8h.html#ab85c6766772563221627125ea100d6c6">cimunit_thread_amount_t</a>;
-<a name="l00032"></a>00032 
-<a name="l00035"></a>00035 
-<a name="l00037"></a><a class="code" href="structcimunit__schedule.html">00037</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structcimunit__schedule.html" title="Structure use to define a CIMUnit schedule.">cimunit_schedule</a> {
-<a name="l00039"></a><a class="code" href="structcimunit__schedule.html#aaad745fdf29f82bf36d0a42190671150">00039</a>     <a class="code" href="cimunit__mutex__pthread_8h.html#a55879c2113e9a2074ebbb10f19952ba7">cimunit_mutex_t</a> <a class="code" href="structcimunit__schedule.html#aaad745fdf29f82bf36d0a42190671150" title="Mutex to synchronize operations on the schedule object.">mutex</a>;
-<a name="l00040"></a>00040     
-<a name="l00042"></a><a class="code" href="structcimunit__schedule.html#a3b856c16970dffad6a99fc1310fd1094">00042</a>     <a class="code" href="structcimunit__event__list.html" title="Structure which maintains a list of events.">cimunit_event_list_t</a> *<a class="code" href="structcimunit__schedule.html#a3b856c16970dffad6a99fc1310fd1094" title="List of events involved in the schedule.">event_list</a>;
-<a name="l00043"></a>00043     
-<a name="l00045"></a><a class="code" href="structcimunit__schedule.html#a6e44531d8bfc8666b523e6465155bf84">00045</a>     <a class="code" href="structcimunit__event__table.html" title="Structure containing which events have been fired.">cimunit_event_table_t</a> <a class="code" href="structcimunit__schedule.html#a6e44531d8bfc8666b523e6465155bf84" title="Structure containing the status of fired events.">fired_event_list</a>;
-<a name="l00046"></a>00046 
-<a name="l00048"></a><a class="code" href="structcimunit__schedule.html#a3cae30091e4b0b7f853336e77d9a43a2">00048</a>     <a class="code" href="structcimunit__thread__table.html" title="Structure serving as the entry point for the thread name list.">cimunit_thread_table_t</a> <a class="code" href="structcimunit__schedule.html#a3cae30091e4b0b7f853336e77d9a43a2" title="Table used for thread lookups.">thread_table</a>;
-<a name="l00049"></a>00049     
-<a name="l00051"></a><a class="code" href="structcimunit__schedule.html#a5fad6d5b7858bbfc2cad3e82b10ed12d">00051</a>     <span class="keywordtype">char</span> *<a class="code" href="structcimunit__schedule.html#a5fad6d5b7858bbfc2cad3e82b10ed12d" title="Text version of the schedule.">schedule_string</a>;
-<a name="l00052"></a>00052 } <a class="code" href="group__cimunit__schedule.html#ga2d6c72f39a45e735e3fe288f3293ac2a" title="Structure use to define a CIMUnit schedule.">cimunit_schedule_t</a>;
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054 
-<a name="l00059"></a>00059 <a class="code" href="structcimunit__schedule.html" title="Structure use to define a CIMUnit schedule.">cimunit_schedule_t</a> *<a class="code" href="group__cimunit__schedule.html#ga61ff8f64cc0c3cda683e87e92043a73c">cimunit_schedule_parse</a>(<span class="keywordtype">char</span> *schedule_string);
-<a name="l00060"></a>00060 
-<a name="l00061"></a>00061 
-<a name="l00068"></a>00068 <a class="code" href="cimunit__platform__darwin_8h.html#ae4cc35dcc70810fa972cc8a5185a28fa">BOOL</a> <a class="code" href="group__cimunit__schedule.html#gab5ed06bb8046a2b898c9a79e5bc98d23">cimunit_schedule_parse_runtime</a>(<a class="code" href="structcimunit__schedule.html" title="Structure use to define a CIMUnit schedule.">cimunit_schedule_t</a> *schedule,
-<a name="l00069"></a>00069                                     <span class="keyword">const</span> <span class="keywordtype">char</span> *action_event,
-<a name="l00070"></a>00070                                     <span class="keyword">const</span> <span class="keywordtype">char</span> *thread);
-<a name="l00071"></a>00071 
-<a name="l00072"></a>00072 
-<a name="l00076"></a>00076 <a class="code" href="structcimunit__schedule.html" title="Structure use to define a CIMUnit schedule.">cimunit_schedule_t</a> *<a class="code" href="group__cimunit__schedule.html#ga8a4cda86d6b0b2cbd63e4f8c3094b889">cimunit_schedule_init</a>();
-<a name="l00077"></a>00077 
-<a name="l00078"></a>00078 
-<a name="l00080"></a>00080 <span class="keywordtype">void</span> <a class="code" href="group__cimunit__schedule.html#ga72f4771cf3b96241da1791e3fabb14b7" title="Destroy the schedule object and free memory.">cimunit_schedule_destroy</a>(<a class="code" href="structcimunit__schedule.html" title="Structure use to define a CIMUnit schedule.">cimunit_schedule_t</a> *schedule);
+<a name="l00031"></a>00031 <span class="preprocessor">#ifdef __cplusplus</span>
+<a name="l00032"></a>00032 <span class="preprocessor"></span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {
+<a name="l00033"></a>00033 <span class="preprocessor">#endif</span>
+<a name="l00034"></a>00034 <span class="preprocessor"></span>  
+<a name="l00035"></a><a class="code" href="cimunit__schedule_8h.html#ab85c6766772563221627125ea100d6c6">00035</a> <span class="keyword">typedef</span> <span class="keywordtype">size_t</span> <a class="code" href="cimunit__schedule_8h.html#ab85c6766772563221627125ea100d6c6">cimunit_thread_amount_t</a>;
+<a name="l00036"></a>00036 
+<a name="l00039"></a>00039 
+<a name="l00041"></a><a class="code" href="structcimunit__schedule.html">00041</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structcimunit__schedule.html" title="Structure use to define a CIMUnit schedule.">cimunit_schedule</a> {
+<a name="l00043"></a><a class="code" href="structcimunit__schedule.html#aaad745fdf29f82bf36d0a42190671150">00043</a>     <a class="code" href="cimunit__mutex__pthread_8h.html#a55879c2113e9a2074ebbb10f19952ba7">cimunit_mutex_t</a> <a class="code" href="structcimunit__schedule.html#aaad745fdf29f82bf36d0a42190671150" title="Mutex to synchronize operations on the schedule object.">mutex</a>;
+<a name="l00044"></a>00044     
+<a name="l00046"></a><a class="code" href="structcimunit__schedule.html#a3b856c16970dffad6a99fc1310fd1094">00046</a>     <a class="code" href="structcimunit__event__list.html" title="Structure which maintains a list of events.">cimunit_event_list_t</a> *<a class="code" href="structcimunit__schedule.html#a3b856c16970dffad6a99fc1310fd1094" title="List of events involved in the schedule.">event_list</a>;
+<a name="l00047"></a>00047     
+<a name="l00049"></a><a class="code" href="structcimunit__schedule.html#a6e44531d8bfc8666b523e6465155bf84">00049</a>     <a class="code" href="structcimunit__event__table.html" title="Structure containing which events have been fired.">cimunit_event_table_t</a> <a class="code" href="structcimunit__schedule.html#a6e44531d8bfc8666b523e6465155bf84" title="Structure containing the status of fired events.">fired_event_list</a>;
+<a name="l00050"></a>00050 
+<a name="l00052"></a><a class="code" href="structcimunit__schedule.html#a3cae30091e4b0b7f853336e77d9a43a2">00052</a>     <a class="code" href="structcimunit__thread__table.html" title="Structure serving as the entry point for the thread name list.">cimunit_thread_table_t</a> <a class="code" href="structcimunit__schedule.html#a3cae30091e4b0b7f853336e77d9a43a2" title="Table used for thread lookups.">thread_table</a>;
+<a name="l00053"></a>00053     
+<a name="l00055"></a><a class="code" href="structcimunit__schedule.html#a5fad6d5b7858bbfc2cad3e82b10ed12d">00055</a>     <span class="keywordtype">char</span> *<a class="code" href="structcimunit__schedule.html#a5fad6d5b7858bbfc2cad3e82b10ed12d" title="Text version of the schedule.">schedule_string</a>;
+<a name="l00056"></a>00056 } <a class="code" href="group__cimunit__schedule.html#ga2d6c72f39a45e735e3fe288f3293ac2a" title="Structure use to define a CIMUnit schedule.">cimunit_schedule_t</a>;
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058 
+<a name="l00063"></a>00063 <a class="code" href="structcimunit__schedule.html" title="Structure use to define a CIMUnit schedule.">cimunit_schedule_t</a> *<a class="code" href="group__cimunit__schedule.html#ga61ff8f64cc0c3cda683e87e92043a73c">cimunit_schedule_parse</a>(<span class="keywordtype">char</span> *schedule_string);
+<a name="l00064"></a>00064 
+<a name="l00065"></a>00065 
+<a name="l00072"></a>00072 <a class="code" href="cimunit__platform__darwin_8h.html#ae4cc35dcc70810fa972cc8a5185a28fa">BOOL</a> <a class="code" href="group__cimunit__schedule.html#gab5ed06bb8046a2b898c9a79e5bc98d23">cimunit_schedule_parse_runtime</a>(<a class="code" href="structcimunit__schedule.html" title="Structure use to define a CIMUnit schedule.">cimunit_schedule_t</a> *schedule,
+<a name="l00073"></a>00073                                     <span class="keyword">const</span> <span class="keywordtype">char</span> *action_event,
+<a name="l00074"></a>00074                                     <span class="keyword">const</span> <span class="keywordtype">char</span> *thread);
+<a name="l00075"></a>00075 
+<a name="l00076"></a>00076 
+<a name="l00080"></a>00080 <a class="code" href="structcimunit__schedule.html" title="Structure use to define a CIMUnit schedule.">cimunit_schedule_t</a> *<a class="code" href="group__cimunit__schedule.html#ga8a4cda86d6b0b2cbd63e4f8c3094b889">cimunit_schedule_init</a>();
 <a name="l00081"></a>00081 
 <a name="l00082"></a>00082 
-<a name="l00088"></a>00088 <a class="code" href="structcimunit__event.html" title="Structure defining a CIMUnit event.">cimunit_event_t</a> *<a class="code" href="group__cimunit__schedule.html#gaefd0295457391bc2692e754b6589eb54">cimunit_schedule_add_event</a>(<span class="keyword">struct</span> <a class="code" href="structcimunit__schedule.html" title="Structure use to define a CIMUnit schedule.">cimunit_schedule</a> *schedule,
-<a name="l00089"></a>00089                                             <span class="keyword">const</span> <span class="keywordtype">char</span> *name);
-<a name="l00090"></a>00090 
-<a name="l00091"></a>00091 
-<a name="l00092"></a>00092 <span class="keywordtype">void</span> <a class="code" href="group__cimunit__schedule.html#ga3348deee81d8b964f7165093520fa647">cimunit_schedule_add_action_event</a>(<span class="keyword">struct</span> <a class="code" href="structcimunit__schedule.html" title="Structure use to define a CIMUnit schedule.">cimunit_schedule</a> *schedule,
-<a name="l00093"></a>00093                                        <span class="keyword">const</span> <span class="keywordtype">char</span> *conditionEventName,
-<a name="l00094"></a>00094                                        <span class="keyword">const</span> <span class="keywordtype">char</span> *actionEventName);
+<a name="l00084"></a>00084 <span class="keywordtype">void</span> <a class="code" href="group__cimunit__schedule.html#ga72f4771cf3b96241da1791e3fabb14b7" title="Destroy the schedule object and free memory.">cimunit_schedule_destroy</a>(<a class="code" href="structcimunit__schedule.html" title="Structure use to define a CIMUnit schedule.">cimunit_schedule_t</a> *schedule);
+<a name="l00085"></a>00085 
+<a name="l00086"></a>00086 
+<a name="l00092"></a>00092 <a class="code" href="structcimunit__event.html" title="Structure defining a CIMUnit event.">cimunit_event_t</a> *<a class="code" href="group__cimunit__schedule.html#gaefd0295457391bc2692e754b6589eb54">cimunit_schedule_add_event</a>(<span class="keyword">struct</span> <a class="code" href="structcimunit__schedule.html" title="Structure use to define a CIMUnit schedule.">cimunit_schedule</a> *schedule,
+<a name="l00093"></a>00093                                             <span class="keyword">const</span> <span class="keywordtype">char</span> *name);
+<a name="l00094"></a>00094 
 <a name="l00095"></a>00095 
-<a name="l00096"></a>00096 
-<a name="l00102"></a>00102 <a class="code" href="cimunit__platform__darwin_8h.html#ae4cc35dcc70810fa972cc8a5185a28fa">BOOL</a> <a class="code" href="group__cimunit__schedule.html#ga51236ae0abd30f98baa140eed1ab7a3c">cimunit_schedule_fire</a>(<span class="keyword">struct</span> <a class="code" href="structcimunit__schedule.html" title="Structure use to define a CIMUnit schedule.">cimunit_schedule</a> *schedule,
-<a name="l00103"></a>00103                            <span class="keyword">const</span> <span class="keywordtype">char</span> *eventName);
-<a name="l00104"></a>00104 
-<a name="l00105"></a>00105 
-<a name="l00111"></a>00111 <span class="keywordtype">void</span> <a class="code" href="group__cimunit__schedule.html#gaffbd81edf07740fec1021231b9e09d9a">cimunit_schedule_set_thread_name</a>(<a class="code" href="structcimunit__schedule.html" title="Structure use to define a CIMUnit schedule.">cimunit_schedule_t</a> *schedule,
-<a name="l00112"></a>00112                                       <a class="code" href="cimunit__thread__pthread_8h.html#a2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a> thread,
-<a name="l00113"></a>00113                                       <span class="keyword">const</span> <span class="keywordtype">char</span> *threadName);
-<a name="l00114"></a>00114 
-<a name="l00115"></a>00115 
-<a name="l00121"></a>00121 <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="group__cimunit__schedule.html#ga716f7c2a8496e2f1e362249ded8cfb64">cimunit_schedule_get_thread_name</a>(<a class="code" href="structcimunit__schedule.html" title="Structure use to define a CIMUnit schedule.">cimunit_schedule_t</a> *schedule,
-<a name="l00122"></a>00122                                              <a class="code" href="cimunit__thread__pthread_8h.html#a2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a> thread);
-<a name="l00123"></a>00123 
-<a name="l00125"></a>00125 
-<a name="l00126"></a>00126 <span class="preprocessor">#endif // CIMUNIT_SCHEDULE_H</span>
+<a name="l00096"></a>00096 <span class="keywordtype">void</span> <a class="code" href="group__cimunit__schedule.html#ga3348deee81d8b964f7165093520fa647">cimunit_schedule_add_action_event</a>(<span class="keyword">struct</span> <a class="code" href="structcimunit__schedule.html" title="Structure use to define a CIMUnit schedule.">cimunit_schedule</a> *schedule,
+<a name="l00097"></a>00097                                        <span class="keyword">const</span> <span class="keywordtype">char</span> *conditionEventName,
+<a name="l00098"></a>00098                                        <span class="keyword">const</span> <span class="keywordtype">char</span> *actionEventName);
+<a name="l00099"></a>00099 
+<a name="l00100"></a>00100 
+<a name="l00106"></a>00106 <a class="code" href="cimunit__platform__darwin_8h.html#ae4cc35dcc70810fa972cc8a5185a28fa">BOOL</a> <a class="code" href="group__cimunit__schedule.html#ga51236ae0abd30f98baa140eed1ab7a3c">cimunit_schedule_fire</a>(<span class="keyword">struct</span> <a class="code" href="structcimunit__schedule.html" title="Structure use to define a CIMUnit schedule.">cimunit_schedule</a> *schedule,
+<a name="l00107"></a>00107                            <span class="keyword">const</span> <span class="keywordtype">char</span> *eventName);
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109 
+<a name="l00115"></a>00115 <span class="keywordtype">void</span> <a class="code" href="group__cimunit__schedule.html#gaffbd81edf07740fec1021231b9e09d9a">cimunit_schedule_set_thread_name</a>(<a class="code" href="structcimunit__schedule.html" title="Structure use to define a CIMUnit schedule.">cimunit_schedule_t</a> *schedule,
+<a name="l00116"></a>00116                                       <a class="code" href="cimunit__thread__pthread_8h.html#a2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a> thread,
+<a name="l00117"></a>00117                                       <span class="keyword">const</span> <span class="keywordtype">char</span> *threadName);
+<a name="l00118"></a>00118 
+<a name="l00119"></a>00119 
+<a name="l00125"></a>00125 <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="group__cimunit__schedule.html#ga716f7c2a8496e2f1e362249ded8cfb64">cimunit_schedule_get_thread_name</a>(<a class="code" href="structcimunit__schedule.html" title="Structure use to define a CIMUnit schedule.">cimunit_schedule_t</a> *schedule,
+<a name="l00126"></a>00126                                              <a class="code" href="cimunit__thread__pthread_8h.html#a2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a> thread);
+<a name="l00127"></a>00127 
+<a name="l00129"></a>00129 
+<a name="l00130"></a>00130 <span class="preprocessor">#ifdef __cplusplus</span>
+<a name="l00131"></a>00131 <span class="preprocessor"></span>}
+<a name="l00132"></a>00132 <span class="preprocessor">#endif</span>
+<a name="l00133"></a>00133 <span class="preprocessor"></span>
+<a name="l00134"></a>00134 <span class="preprocessor">#endif // CIMUNIT_SCHEDULE_H</span>
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Thu Dec 1 2011 22:24:48 for CIMUnit by&#160;
-<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+
+
+<hr class="footer"/><address class="footer"><small>
+Generated for CIMUnit by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4</small></address>
+
 </body>
 </html>
