@@ -59,8 +59,8 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcimunit__event.html">cimunit_event_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cimunit__schedule.html#gaefd0295457391bc2692e754b6589eb54">cimunit_schedule_add_event</a> (struct <a class="el" href="structcimunit__schedule.html">cimunit_schedule</a> *schedule, const char *name)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cimunit__schedule.html#ga3348deee81d8b964f7165093520fa647">cimunit_schedule_add_action_event</a> (struct <a class="el" href="structcimunit__schedule.html">cimunit_schedule</a> *schedule, const char *conditionEventName, const char *actionEventName)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">BOOL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cimunit__schedule.html#ga51236ae0abd30f98baa140eed1ab7a3c">cimunit_schedule_fire</a> (struct <a class="el" href="structcimunit__schedule.html">cimunit_schedule</a> *schedule, const char *eventName)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cimunit__schedule.html#gaffbd81edf07740fec1021231b9e09d9a">cimunit_schedule_set_thread_name</a> (<a class="el" href="structcimunit__schedule.html">cimunit_schedule_t</a> *schedule, <a class="el" href="cimunit__thread__pthread_8h.html#a2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a> thread, const char *threadName)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cimunit__schedule.html#ga716f7c2a8496e2f1e362249ded8cfb64">cimunit_schedule_get_thread_name</a> (<a class="el" href="structcimunit__schedule.html">cimunit_schedule_t</a> *schedule, <a class="el" href="cimunit__thread__pthread_8h.html#a2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a> thread)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cimunit__schedule.html#gaffbd81edf07740fec1021231b9e09d9a">cimunit_schedule_set_thread_name</a> (<a class="el" href="structcimunit__schedule.html">cimunit_schedule_t</a> *schedule, <a class="el" href="group__cimunit__thread.html#ga2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a> thread, const char *threadName)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cimunit__schedule.html#ga716f7c2a8496e2f1e362249ded8cfb64">cimunit_schedule_get_thread_name</a> (<a class="el" href="structcimunit__schedule.html">cimunit_schedule_t</a> *schedule, <a class="el" href="group__cimunit__thread.html#ga2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a> thread)</td></tr>
 </table>
 <hr/><h2>Typedef Documentation</h2>
 <a class="anchor" id="ga2d6c72f39a45e735e3fe288f3293ac2a"></a><!-- doxytag: member="cimunit_schedule.h::cimunit_schedule_t" ref="ga2d6c72f39a45e735e3fe288f3293ac2a" args="" -->
@@ -166,20 +166,7 @@ Functions</h2></td></tr>
 <p>Destroy the schedule object and free memory. </p>
 
 <p>Definition at line <a class="el" href="cimunit__schedule_8c_source.html#l00040">40</a> of file <a class="el" href="cimunit__schedule_8c_source.html">cimunit_schedule.c</a>.</p>
-<div class="fragment"><pre class="fragment">                                                            {
-    <a class="code" href="structcimunit__event__list.html" title="Structure which maintains a list of events.">cimunit_event_list_t</a> *event_list = schedule-&gt;<a class="code" href="structcimunit__schedule.html#a3b856c16970dffad6a99fc1310fd1094" title="List of events involved in the schedule.">event_list</a>;
 
-    <a class="code" href="group__cimunit__thread__table.html#gadd847cf03ed8e5833ee418810058fadd">cimunit_thread_table_destroy</a>(&amp;(schedule-&gt;<a class="code" href="structcimunit__schedule.html#a3cae30091e4b0b7f853336e77d9a43a2" title="Table used for thread lookups.">thread_table</a>));
-    
-    <span class="keywordflow">while</span>(event_list) {
-        <a class="code" href="group__cimunit__event.html#ga5e0967898d7c4da9bf369333aa6ac941">cimunit_event_destroy</a>(event_list-&gt;<a class="code" href="structcimunit__event__list.html#ad62be4763b53ed73879ae83fdb105035" title="Pointer to event structure.">event</a>);
-        event_list = event_list-&gt;<a class="code" href="structcimunit__event__list.html#ab02508880890e175d0330914b7c9d23e" title="Next event in the list.">next</a>;
-    }
-    <a class="code" href="group__cimunit__event__list.html#ga9b24f540b6084a467da109764ab543e9">cimunit_event_list_destroy</a>(&amp;schedule-&gt;<a class="code" href="structcimunit__schedule.html#a3b856c16970dffad6a99fc1310fd1094" title="List of events involved in the schedule.">event_list</a>);
-    
-    free(schedule-&gt;<a class="code" href="structcimunit__schedule.html#a5fad6d5b7858bbfc2cad3e82b10ed12d" title="Text version of the schedule.">schedule_string</a>);
-}
-</pre></div>
 </div>
 </div>
 <a class="anchor" id="ga51236ae0abd30f98baa140eed1ab7a3c"></a><!-- doxytag: member="cimunit_schedule.h::cimunit_schedule_fire" ref="ga51236ae0abd30f98baa140eed1ab7a3c" args="(struct cimunit_schedule *schedule, const char *eventName)" -->
@@ -217,51 +204,7 @@ Functions</h2></td></tr>
 <dl class="return"><dt><b>Returns:</b></dt><dd>true if the event was found, else false </dd></dl>
 
 <p>Definition at line <a class="el" href="cimunit__schedule_8c_source.html#l00055">55</a> of file <a class="el" href="cimunit__schedule_8c_source.html">cimunit_schedule.c</a>.</p>
-<div class="fragment"><pre class="fragment">{
-    <span class="keyword">const</span> <span class="keywordtype">char</span> *thread_name;
-    <a class="code" href="structcimunit__event.html" title="Structure defining a CIMUnit event.">cimunit_event_t</a> *event;
-    <span class="keyword">const</span> <a class="code" href="structcimunit__event__list.html" title="Structure which maintains a list of events.">cimunit_event_list_t</a> *next_action;
 
-    <span class="keywordflow">if</span> (!schedule) {
-      <span class="keywordflow">return</span> <a class="code" href="cimunit__platform__darwin_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a>;
-    }
-    
-    thread_name = <a class="code" href="group__cimunit__schedule.html#ga716f7c2a8496e2f1e362249ded8cfb64">cimunit_schedule_get_thread_name</a>(schedule,
-                                                   <a class="code" href="group__cimunit__thread.html#gac9b57c4e9446524146f04f224bd4f684">cimunit_thread_self</a>());
-
-    <span class="keyword">event</span> = <a class="code" href="group__cimunit__event__list.html#ga518ef020db3a322cded7a0ee88268ac0">cimunit_event_list_find_with_thread</a>(schedule-&gt;<a class="code" href="structcimunit__schedule.html#a3b856c16970dffad6a99fc1310fd1094" title="List of events involved in the schedule.">event_list</a>,
-                                                eventName, thread_name); 
-      
-    <span class="keywordflow">if</span> (!event) {
-        <span class="keyword">event</span> = <a class="code" href="group__cimunit__event__list.html#ga494572453246393ed929ce5918c458c8">cimunit_event_list_find</a>(schedule-&gt;<a class="code" href="structcimunit__schedule.html#a3b856c16970dffad6a99fc1310fd1094" title="List of events involved in the schedule.">event_list</a>, eventName);
-    }
-    <span class="keywordflow">if</span> (event) {
-        <a class="code" href="group__cimunit__event__table.html#ga2d231d125ae12c4a2729f9e524588cbd">cimunit_add_event_to_table</a>(&amp;schedule-&gt;<a class="code" href="structcimunit__schedule.html#a6e44531d8bfc8666b523e6465155bf84" title="Structure containing the status of fired events.">fired_event_list</a>, event, NULL);
-
-        next_action = <a class="code" href="group__cimunit__event.html#ga513815891691fd87014c443a9fa7c10b">cimunit_event_get_action_list</a>(event);
-      
-        <span class="comment">// When the event is fired, open the barriers associated with this event.</span>
-        <span class="comment">// e.x.  a-&gt;b   fire_event(&#39;a&#39;) causes the barrier associated with &#39;b&#39; to</span>
-        <span class="comment">// be unlocked.</span>
-        <span class="keywordflow">while</span>(next_action) {
-            <span class="keywordflow">if</span> (<a class="code" href="group__cimunit__schedule.html#gab5ed06bb8046a2b898c9a79e5bc98d23">cimunit_schedule_parse_runtime</a>(
-                  schedule, next_action-&gt;<a class="code" href="structcimunit__event__list.html#ad62be4763b53ed73879ae83fdb105035" title="Pointer to event structure.">event</a>-&gt;<a class="code" href="structcimunit__event.html#a8a8899edccca41deaa2000a611620068" title="Textual name of the event, used by scheduling rules.">event_name</a>,
-                  next_action-&gt;<a class="code" href="structcimunit__event__list.html#ad62be4763b53ed73879ae83fdb105035" title="Pointer to event structure.">event</a>-&gt;<a class="code" href="structcimunit__event.html#a135609200b6076dbb82d31e0e2520681">thread_name</a>)) {
-                <a class="code" href="group__cimunit__barrier.html#ga7baecefdf81b77c2caf23e6830bfac20">cimunit_barrier_unlock</a>(&amp;(next_action-&gt;<a class="code" href="structcimunit__event__list.html#ad62be4763b53ed73879ae83fdb105035" title="Pointer to event structure.">event</a>-&gt;<a class="code" href="structcimunit__event.html#a4e80e33d5c358dbfdfc0952c48abdfae">condition_barrier</a>));
-            }
-            next_action = next_action-&gt;<a class="code" href="structcimunit__event__list.html#ab02508880890e175d0330914b7c9d23e" title="Next event in the list.">next</a>;
-        }
-      
-        <span class="keywordflow">if</span> (event-&gt;<a class="code" href="structcimunit__event.html#a51b5e0b91c59ee2045d9ae4040eca81e">is_action</a>) {
-            <a class="code" href="group__cimunit__barrier.html#ga872b8d321731d97d2023530c2c33acd8">cimunit_barrier_wait</a>(&amp;(event-&gt;<a class="code" href="structcimunit__event.html#a4e80e33d5c358dbfdfc0952c48abdfae">condition_barrier</a>));
-        }
-    } <span class="keywordflow">else</span> {
-        <span class="keywordflow">return</span> <a class="code" href="cimunit__platform__darwin_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a>;
-    }
-    
-    <span class="keywordflow">return</span> <a class="code" href="cimunit__platform__darwin_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>;
-}
-</pre></div>
 </div>
 </div>
 <a class="anchor" id="ga716f7c2a8496e2f1e362249ded8cfb64"></a><!-- doxytag: member="cimunit_schedule.h::cimunit_schedule_get_thread_name" ref="ga716f7c2a8496e2f1e362249ded8cfb64" args="(cimunit_schedule_t *schedule, cimunit_thread_t thread)" -->
@@ -277,7 +220,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="cimunit__thread__pthread_8h.html#a2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="group__cimunit__thread.html#ga2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a>&#160;</td>
           <td class="paramname"><em>thread</em>&#160;</td>
         </tr>
         <tr>
@@ -299,18 +242,7 @@ Functions</h2></td></tr>
 <dl class="return"><dt><b>Returns:</b></dt><dd>pointer to the name of the thread </dd></dl>
 
 <p>Definition at line <a class="el" href="cimunit__schedule_8c_source.html#l00116">116</a> of file <a class="el" href="cimunit__schedule_8c_source.html">cimunit_schedule.c</a>.</p>
-<div class="fragment"><pre class="fragment">{
-    <span class="keyword">const</span> <span class="keywordtype">char</span> *thread_name;
-    
-    <span class="keywordflow">if</span> (!schedule) {
-      <span class="keywordflow">return</span> NULL;
-    }
-    
-    <a class="code" href="group__cimunit__thread__table.html#ga45c85fba836119a234c7cd6b3229ee19">cimunit_get_thread_name</a>(&amp;schedule-&gt;<a class="code" href="structcimunit__schedule.html#a3cae30091e4b0b7f853336e77d9a43a2" title="Table used for thread lookups.">thread_table</a>, thread, &amp;thread_name);
 
-    <span class="keywordflow">return</span> thread_name;
-}
-</pre></div>
 </div>
 </div>
 <a class="anchor" id="ga8a4cda86d6b0b2cbd63e4f8c3094b889"></a><!-- doxytag: member="cimunit_schedule.h::cimunit_schedule_init" ref="ga8a4cda86d6b0b2cbd63e4f8c3094b889" args="()" -->
@@ -330,17 +262,7 @@ Functions</h2></td></tr>
 <dl class="return"><dt><b>Returns:</b></dt><dd>new schedule object </dd></dl>
 
 <p>Definition at line <a class="el" href="cimunit__schedule_8c_source.html#l00028">28</a> of file <a class="el" href="cimunit__schedule_8c_source.html">cimunit_schedule.c</a>.</p>
-<div class="fragment"><pre class="fragment">                                            {
-    <a class="code" href="structcimunit__schedule.html" title="Structure use to define a CIMUnit schedule.">cimunit_schedule_t</a> *schedule = malloc(<span class="keyword">sizeof</span>(<a class="code" href="structcimunit__schedule.html" title="Structure use to define a CIMUnit schedule.">cimunit_schedule_t</a>));
-    <a class="code" href="group__cimunit__mutex.html#ga07a2fd2b277af2e44ca2033e05524bd6">cimunit_mutex_init</a>(&amp;schedule-&gt;<a class="code" href="structcimunit__schedule.html#aaad745fdf29f82bf36d0a42190671150" title="Mutex to synchronize operations on the schedule object.">mutex</a>, NULL);
-    <a class="code" href="group__cimunit__thread__table.html#ga7d2f3a3b8ca9ff4d58b974ead103c58e">cimunit_thread_table_init</a>(&amp;(schedule-&gt;<a class="code" href="structcimunit__schedule.html#a3cae30091e4b0b7f853336e77d9a43a2" title="Table used for thread lookups.">thread_table</a>)); 
-    schedule-&gt;<a class="code" href="structcimunit__schedule.html#a3b856c16970dffad6a99fc1310fd1094" title="List of events involved in the schedule.">event_list</a> = <a class="code" href="group__cimunit__event__list.html#gae4f91b31c461550b22c9cccc1f47fb98">cimunit_event_list_init</a>();
-    <a class="code" href="group__cimunit__event__table.html#ga5c64ebe9c119d694fdac456ad5adf6e1">cimunit_event_table_init</a>(&amp;schedule-&gt;<a class="code" href="structcimunit__schedule.html#a6e44531d8bfc8666b523e6465155bf84" title="Structure containing the status of fired events.">fired_event_list</a>, &amp;(schedule-&gt;<a class="code" href="structcimunit__schedule.html#a3cae30091e4b0b7f853336e77d9a43a2" title="Table used for thread lookups.">thread_table</a>));
-    schedule-&gt;<a class="code" href="structcimunit__schedule.html#a5fad6d5b7858bbfc2cad3e82b10ed12d" title="Text version of the schedule.">schedule_string</a> = NULL;
 
-    <span class="keywordflow">return</span> schedule;
-}
-</pre></div>
 </div>
 </div>
 <a class="anchor" id="ga61ff8f64cc0c3cda683e87e92043a73c"></a><!-- doxytag: member="cimunit_schedule.h::cimunit_schedule_parse" ref="ga61ff8f64cc0c3cda683e87e92043a73c" args="(char *schedule_string)" -->
@@ -425,7 +347,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="cimunit__thread__pthread_8h.html#a2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="group__cimunit__thread.html#ga2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a>&#160;</td>
           <td class="paramname"><em>thread</em>, </td>
         </tr>
         <tr>
@@ -453,15 +375,7 @@ Functions</h2></td></tr>
 </dl>
 
 <p>Definition at line <a class="el" href="cimunit__schedule_8c_source.html#l00103">103</a> of file <a class="el" href="cimunit__schedule_8c_source.html">cimunit_schedule.c</a>.</p>
-<div class="fragment"><pre class="fragment">{
-    <span class="keywordflow">if</span> (!schedule) {
-      <span class="keywordflow">return</span>;
-    }
-    <a class="code" href="group__cimunit__mutex.html#ga952779f6b5b0d1bae6e0af1163679adc">cimunit_mutex_lock</a>(&amp;schedule-&gt;<a class="code" href="structcimunit__schedule.html#aaad745fdf29f82bf36d0a42190671150" title="Mutex to synchronize operations on the schedule object.">mutex</a>);
-    <a class="code" href="group__cimunit__thread__table.html#ga32a593395206887e630a99be5eafe37b">cimunit_set_thread_name</a>(&amp;schedule-&gt;<a class="code" href="structcimunit__schedule.html#a3cae30091e4b0b7f853336e77d9a43a2" title="Table used for thread lookups.">thread_table</a>, thread, threadName);                                      
-    <a class="code" href="group__cimunit__mutex.html#ga966f0bdd952ca4b90a01246a86f93dc2">cimunit_mutex_unlock</a>(&amp;schedule-&gt;<a class="code" href="structcimunit__schedule.html#aaad745fdf29f82bf36d0a42190671150" title="Mutex to synchronize operations on the schedule object.">mutex</a>);
-}
-</pre></div>
+
 </div>
 </div>
 </div>

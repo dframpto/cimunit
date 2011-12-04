@@ -108,14 +108,7 @@ Functions</h2></td></tr>
 </dl>
 
 <p>Definition at line <a class="el" href="cimunit__event_8c_source.html#l00063">63</a> of file <a class="el" href="cimunit__event_8c_source.html">cimunit_event.c</a>.</p>
-<div class="fragment"><pre class="fragment">{
-    <span class="comment">// Add event to head of the action event list</span>
-    <a class="code" href="group__cimunit__event__list.html#ga2cda68249d42bf42673301a3302e3ba3">cimunit_event_list_add</a>(&amp;condition-&gt;<a class="code" href="structcimunit__event.html#af05ecdcd9f4e1c1f27b570a2d6b71117" title="List of action events that wait on this condition event.">action_events</a>, action);
-    
-    <span class="comment">// action event now needs to be marked as such</span>
-    action-&gt;<a class="code" href="structcimunit__event.html#a51b5e0b91c59ee2045d9ae4040eca81e">is_action</a> = <a class="code" href="cimunit__platform__darwin_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>;
-}
-</pre></div>
+
 </div>
 </div>
 <a class="anchor" id="ga5e0967898d7c4da9bf369333aa6ac941"></a><!-- doxytag: member="cimunit_event.h::cimunit_event_destroy" ref="ga5e0967898d7c4da9bf369333aa6ac941" args="(cimunit_event_t *event)" -->
@@ -141,11 +134,7 @@ Functions</h2></td></tr>
 </dl>
 
 <p>Definition at line <a class="el" href="cimunit__event_8c_source.html#l00057">57</a> of file <a class="el" href="cimunit__event_8c_source.html">cimunit_event.c</a>.</p>
-<div class="fragment"><pre class="fragment">                                                   {
-    <a class="code" href="group__cimunit__event__list.html#ga9b24f540b6084a467da109764ab543e9">cimunit_event_list_destroy</a>(&amp;event-&gt;<a class="code" href="structcimunit__event.html#af05ecdcd9f4e1c1f27b570a2d6b71117" title="List of action events that wait on this condition event.">action_events</a>); 
-    <a class="code" href="group__cimunit__barrier.html#ga725c2e64e984f6beeae709b2305d2605">cimunit_barrier_destroy</a>(&amp;(event-&gt;<a class="code" href="structcimunit__event.html#a4e80e33d5c358dbfdfc0952c48abdfae">condition_barrier</a>));
-}
-</pre></div>
+
 </div>
 </div>
 <a class="anchor" id="ga513815891691fd87014c443a9fa7c10b"></a><!-- doxytag: member="cimunit_event.h::cimunit_event_get_action_list" ref="ga513815891691fd87014c443a9fa7c10b" args="(cimunit_event_t *event)" -->
@@ -172,10 +161,7 @@ Functions</h2></td></tr>
 <dl class="return"><dt><b>Returns:</b></dt><dd>the list of action event dependent on this condition event </dd></dl>
 
 <p>Definition at line <a class="el" href="cimunit__event_8c_source.html#l00074">74</a> of file <a class="el" href="cimunit__event_8c_source.html">cimunit_event.c</a>.</p>
-<div class="fragment"><pre class="fragment">                          {
-    <span class="keywordflow">return</span> <span class="keyword">event</span>-&gt;action_events;
-}
-</pre></div>
+
 </div>
 </div>
 <a class="anchor" id="ga6f67f8fdc523b98ce736e3eecb94f1ba"></a><!-- doxytag: member="cimunit_event.h::cimunit_event_init" ref="ga6f67f8fdc523b98ce736e3eecb94f1ba" args="(cimunit_event_t *event, const char *name)" -->
@@ -212,10 +198,7 @@ Functions</h2></td></tr>
 </dl>
 
 <p>Definition at line <a class="el" href="cimunit__event_8c_source.html#l00051">51</a> of file <a class="el" href="cimunit__event_8c_source.html">cimunit_event.c</a>.</p>
-<div class="fragment"><pre class="fragment">{
-    <a class="code" href="group__cimunit__event.html#gae674ed0b125e4b47768ce12b45011fe2">cimunit_event_init_with_thread</a>(event, name, NULL);
-}
-</pre></div>
+
 </div>
 </div>
 <a class="anchor" id="gae674ed0b125e4b47768ce12b45011fe2"></a><!-- doxytag: member="cimunit_event.h::cimunit_event_init_with_thread" ref="gae674ed0b125e4b47768ce12b45011fe2" args="(cimunit_event_t *event, const char *name, const char *thread)" -->
@@ -259,25 +242,7 @@ Functions</h2></td></tr>
 </dl>
 
 <p>Definition at line <a class="el" href="cimunit__event_8c_source.html#l00030">30</a> of file <a class="el" href="cimunit__event_8c_source.html">cimunit_event.c</a>.</p>
-<div class="fragment"><pre class="fragment">                                                        {
-    <span class="keywordtype">char</span> *event_name = malloc(strlen(name) + 1);
-    strcpy(event_name, name);
-    <span class="keyword">event</span>-&gt;event_name = event_name;
-    
-    <span class="keywordflow">if</span> (thread != NULL) {
-        <span class="keywordtype">char</span> *thread_name = malloc(strlen(thread) + 1);
-        strcpy(thread_name, thread);
-        <span class="keyword">event</span>-&gt;thread_name = thread_name;
-    } <span class="keywordflow">else</span> {
-        <span class="keyword">event</span>-&gt;thread_name = NULL;
-    }
-    
-    <span class="keyword">event</span>-&gt;action_events = <a class="code" href="group__cimunit__event__list.html#gae4f91b31c461550b22c9cccc1f47fb98">cimunit_event_list_init</a>();
-    <a class="code" href="group__cimunit__barrier.html#gad77db95cf61e7181ff173daf3cc5bd3a">cimunit_barrier_init</a>(&amp;(event-&gt;<a class="code" href="structcimunit__event.html#a4e80e33d5c358dbfdfc0952c48abdfae">condition_barrier</a>));
 
-    <span class="keyword">event</span>-&gt;is_action = <a class="code" href="cimunit__platform__darwin_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a>;
-}
-</pre></div>
 </div>
 </div>
 </div>

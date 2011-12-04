@@ -141,27 +141,7 @@ Functions</h2></td></tr>
 </p>
 
 <p>Definition at line <a class="el" href="cimunit__event__table_8c_source.html#l00067">67</a> of file <a class="el" href="cimunit__event__table_8c_source.html">cimunit_event_table.c</a>.</p>
-<div class="fragment"><pre class="fragment">{
-  <a class="code" href="structevent__table__entry.html" title="Structure defining a CIMUnit event table entry.">cimunit_event_table_entry_t</a> *new_entry = 
-    (<a class="code" href="structevent__table__entry.html" title="Structure defining a CIMUnit event table entry.">cimunit_event_table_entry_t</a>*)malloc(<span class="keyword">sizeof</span>(<a class="code" href="structevent__table__entry.html" title="Structure defining a CIMUnit event table entry.">cimunit_event_table_entry_t</a>));
-  <a class="code" href="group__cimunit__event__table.html#gac6fc553576c8e388bce3ba9b28dcd41e">cimunit_event_table_entry_init</a>(new_entry, event);
-  <a class="code" href="group__cimunit__mutex.html#ga952779f6b5b0d1bae6e0af1163679adc">cimunit_mutex_lock</a>(&amp;(event_table-&gt;<a class="code" href="structcimunit__event__table.html#aced26bafc1ef6d633870fdb238913b90">lock</a>));
-  <span class="keywordflow">if</span>(event_table-&gt;<a class="code" href="structcimunit__event__table.html#ae0aec94fcd8bf68767e1cb7a65befbef" title="The head table entry. Is initially NULL.">head</a> == NULL){
-    event_table-&gt;<a class="code" href="structcimunit__event__table.html#ae0aec94fcd8bf68767e1cb7a65befbef" title="The head table entry. Is initially NULL.">head</a> = new_entry;
-    event_table-&gt;<a class="code" href="structcimunit__event__table.html#a772c663818c9fc73047374a6f91934ae" title="The tail table entry. Is initially NULL.">tail</a> = new_entry;
-  }  
-  <span class="keywordflow">else</span>{
-    event_table-&gt;<a class="code" href="structcimunit__event__table.html#a772c663818c9fc73047374a6f91934ae" title="The tail table entry. Is initially NULL.">tail</a>-&gt;<a class="code" href="structevent__table__entry.html#abdc10c895d38e864ef5353fe8e9ab8bd">next</a> = new_entry;
-    event_table-&gt;<a class="code" href="structcimunit__event__table.html#a772c663818c9fc73047374a6f91934ae" title="The tail table entry. Is initially NULL.">tail</a> = new_entry;
-  }
-  <a class="code" href="group__cimunit__mutex.html#ga966f0bdd952ca4b90a01246a86f93dc2">cimunit_mutex_unlock</a>(&amp;(event_table-&gt;<a class="code" href="structcimunit__event__table.html#aced26bafc1ef6d633870fdb238913b90">lock</a>));
 
-  <span class="keywordflow">if</span>(entry_added != NULL){
-    (*entry_added) = new_entry;
-  }
-  <span class="keywordflow">return</span> 0;
-}
-</pre></div>
 </div>
 </div>
 <a class="anchor" id="gae7972ffe2d4e518368ca090a75303a12"></a><!-- doxytag: member="cimunit_event_table.h::cimunit_event_table_destroy" ref="gae7972ffe2d4e518368ca090a75303a12" args="(cimunit_event_table_t *event_table)" -->
@@ -191,18 +171,7 @@ Functions</h2></td></tr>
 </p>
 
 <p>Definition at line <a class="el" href="cimunit__event__table_8c_source.html#l00054">54</a> of file <a class="el" href="cimunit__event__table_8c_source.html">cimunit_event_table.c</a>.</p>
-<div class="fragment"><pre class="fragment">                                                                   {
-  <a class="code" href="structevent__table__entry.html" title="Structure defining a CIMUnit event table entry.">cimunit_event_table_entry_t</a> *current_entry = event_table-&gt;<a class="code" href="structcimunit__event__table.html#ae0aec94fcd8bf68767e1cb7a65befbef" title="The head table entry. Is initially NULL.">head</a>;
-  <span class="keywordflow">while</span>(current_entry != NULL){
-    event_table-&gt;<a class="code" href="structcimunit__event__table.html#ae0aec94fcd8bf68767e1cb7a65befbef" title="The head table entry. Is initially NULL.">head</a> = current_entry-&gt;<a class="code" href="structevent__table__entry.html#abdc10c895d38e864ef5353fe8e9ab8bd">next</a>;
-    <a class="code" href="group__cimunit__event__table.html#ga707738ee69f0749390a24be327a5a02f">cimunit_event_table_entry_destroy</a>(current_entry);
-    free(current_entry);
-    current_entry = event_table-&gt;<a class="code" href="structcimunit__event__table.html#ae0aec94fcd8bf68767e1cb7a65befbef" title="The head table entry. Is initially NULL.">head</a>;
-  }
-  <a class="code" href="group__cimunit__mutex.html#ga5ebf7b4017b45f95922c697b8cb4b28d">cimunit_mutex_destroy</a>(&amp;(event_table-&gt;<a class="code" href="structcimunit__event__table.html#aced26bafc1ef6d633870fdb238913b90">lock</a>));
-  <span class="keywordflow">return</span> 0;
-}
-</pre></div>
+
 </div>
 </div>
 <a class="anchor" id="ga707738ee69f0749390a24be327a5a02f"></a><!-- doxytag: member="cimunit_event_table.h::cimunit_event_table_entry_destroy" ref="ga707738ee69f0749390a24be327a5a02f" args="(cimunit_event_table_entry_t *entry)" -->
@@ -229,10 +198,7 @@ Functions</h2></td></tr>
 <dl class="return"><dt><b>Returns:</b></dt><dd>- 0 if the destruction was succesfull, false otherwise. </dd></dl>
 
 <p>Definition at line <a class="el" href="cimunit__event__table_8c_source.html#l00038">38</a> of file <a class="el" href="cimunit__event__table_8c_source.html">cimunit_event_table.c</a>.</p>
-<div class="fragment"><pre class="fragment">                                                                         {
-  <span class="comment">//this is a no-op at the moment</span>
-}
-</pre></div>
+
 </div>
 </div>
 <a class="anchor" id="gac6fc553576c8e388bce3ba9b28dcd41e"></a><!-- doxytag: member="cimunit_event_table.h::cimunit_event_table_entry_init" ref="gac6fc553576c8e388bce3ba9b28dcd41e" args="(cimunit_event_table_entry_t *entry, cimunit_event_t *event)" -->
@@ -273,13 +239,7 @@ Functions</h2></td></tr>
 </p>
 
 <p>Definition at line <a class="el" href="cimunit__event__table_8c_source.html#l00027">27</a> of file <a class="el" href="cimunit__event__table_8c_source.html">cimunit_event_table.c</a>.</p>
-<div class="fragment"><pre class="fragment">{
-  entry-&gt;<a class="code" href="structevent__table__entry.html#a1422ab20b6cdcb1d372c7901c280e001" title="The a pointer to the event that is being represented by this entry.">event</a> = event;
-  entry-&gt;<a class="code" href="structevent__table__entry.html#a50650adc3d7b3be49e0a8db405a4eec2" title="The thread id of the thread that fired the event.">thread</a> = <a class="code" href="group__cimunit__thread.html#gac9b57c4e9446524146f04f224bd4f684">cimunit_thread_self</a>();
-  entry-&gt;<a class="code" href="structevent__table__entry.html#abdc10c895d38e864ef5353fe8e9ab8bd">next</a> = NULL; 
-  <span class="keywordflow">return</span> 0;
-}
-</pre></div>
+
 </div>
 </div>
 <a class="anchor" id="ga5c64ebe9c119d694fdac456ad5adf6e1"></a><!-- doxytag: member="cimunit_event_table.h::cimunit_event_table_init" ref="ga5c64ebe9c119d694fdac456ad5adf6e1" args="(cimunit_event_table_t *event_table, const cimunit_thread_table_t *thread_table)" -->
@@ -320,14 +280,7 @@ Functions</h2></td></tr>
 </p>
 
 <p>Definition at line <a class="el" href="cimunit__event__table_8c_source.html#l00042">42</a> of file <a class="el" href="cimunit__event__table_8c_source.html">cimunit_event_table.c</a>.</p>
-<div class="fragment"><pre class="fragment">{
-  event_table-&gt;<a class="code" href="structcimunit__event__table.html#ae0aec94fcd8bf68767e1cb7a65befbef" title="The head table entry. Is initially NULL.">head</a> = NULL;
-  event_table-&gt;<a class="code" href="structcimunit__event__table.html#a772c663818c9fc73047374a6f91934ae" title="The tail table entry. Is initially NULL.">tail</a> = NULL;
-  event_table-&gt;<a class="code" href="structcimunit__event__table.html#a954075a20378f4ca18c4751a8d8fcc5b" title="The thread table to use for thread name lookups.">thread_table</a> = thread_table;
-  <a class="code" href="group__cimunit__mutex.html#ga07a2fd2b277af2e44ca2033e05524bd6">cimunit_mutex_init</a>(&amp;(event_table-&gt;<a class="code" href="structcimunit__event__table.html#aced26bafc1ef6d633870fdb238913b90">lock</a>), NULL);
-  <span class="keywordflow">return</span> 0;
-}
-</pre></div>
+
 </div>
 </div>
 <a class="anchor" id="ga8c0de068f75c23172e5213f67c28639d"></a><!-- doxytag: member="cimunit_event_table.h::cimunit_find_event_in_table" ref="ga8c0de068f75c23172e5213f67c28639d" args="(const cimunit_event_table_t *event_table, const char *event_name, cimunit_event_table_entry_t **found_event)" -->
@@ -372,14 +325,7 @@ Functions</h2></td></tr>
 <dl class="return"><dt><b>Returns:</b></dt><dd>- 0 if the function executed sucessfully, error code otherwise </dd></dl>
 
 <p>Definition at line <a class="el" href="cimunit__event__table_8c_source.html#l00117">117</a> of file <a class="el" href="cimunit__event__table_8c_source.html">cimunit_event_table.c</a>.</p>
-<div class="fragment"><pre class="fragment">{
-  <span class="keywordflow">return</span> <a class="code" href="group__cimunit__event__table.html#gacba93a9086c5439126d91c7e0e969b66">cimunit_find_event_in_table_on_thread</a>(
-    event_table,
-    event_name,
-    NULL,
-    found_event);
-}
-</pre></div>
+
 </div>
 </div>
 <a class="anchor" id="gacba93a9086c5439126d91c7e0e969b66"></a><!-- doxytag: member="cimunit_event_table.h::cimunit_find_event_in_table_on_thread" ref="gacba93a9086c5439126d91c7e0e969b66" args="(const cimunit_event_table_t *event_table, const char *event_name, const char *thread_name, cimunit_event_table_entry_t **found_event)" -->
@@ -434,21 +380,7 @@ Functions</h2></td></tr>
 </p>
 
 <p>Definition at line <a class="el" href="cimunit__event__table_8c_source.html#l00130">130</a> of file <a class="el" href="cimunit__event__table_8c_source.html">cimunit_event_table.c</a>.</p>
-<div class="fragment"><pre class="fragment">{
-  (*found_event) = event_table-&gt;<a class="code" href="structcimunit__event__table.html#ae0aec94fcd8bf68767e1cb7a65befbef" title="The head table entry. Is initially NULL.">head</a>;
-  <span class="keywordflow">while</span>((*found_event) != NULL){
-    <span class="keywordflow">if</span>(<a class="code" href="cimunit__event__table_8c.html#a771d4b3ab83f1ef270bf6fc0caed3264">cimunit_event_matches_table_entry</a>(
-      *found_event, event_table-&gt;<a class="code" href="structcimunit__event__table.html#a954075a20378f4ca18c4751a8d8fcc5b" title="The thread table to use for thread name lookups.">thread_table</a>,
-       event_name, 
-       thread_name))
-    {
-      <span class="keywordflow">break</span>;
-    }    
-    (*found_event) = (*found_event)-&gt;<a class="code" href="structevent__table__entry.html#abdc10c895d38e864ef5353fe8e9ab8bd">next</a>;
-  }
-  <span class="keywordflow">return</span> 0;
-}
-</pre></div>
+
 </div>
 </div>
 </div>

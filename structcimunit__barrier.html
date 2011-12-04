@@ -41,11 +41,11 @@
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
   <div class="headertitle">
-<div class="title">cimunit_barrier Struct Reference</div>  </div>
+<div class="title">cimunit_barrier Struct Reference<div class="ingroups"><a class="el" href="group__cimunit__barrier.html">cimunit_barrier Module</a></div></div>  </div>
 </div>
 <div class="contents">
 <!-- doxytag: class="cimunit_barrier" -->
-<p>Structure containing the data needed to support the barrier.  
+<p>Pthreads barrier structure.  
  <a href="structcimunit__barrier.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="cimunit__barrier__pthread_8h_source.html">cimunit_barrier_pthread.h</a>&gt;</code></p>
@@ -64,9 +64,11 @@ Data Fields</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Semaphore used to pend threads waiting on this barrier.  <a href="#a128710abaf2efd96fad52222066874b5"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Structure containing the data needed to support the barrier. </p>
+<div class="textblock"><p>Pthreads barrier structure. </p>
+<p>Structure containing the data needed to support the barrier on a platform supporting pthreads. It operates by using a pthreads condition variable which allows multiple threads to be pended upon it.</p>
+<p>Structure containing the data needed to support the barrier under VxWorks. It operates by using a single mutex. </p>
 
-<p>Definition at line <a class="el" href="cimunit__barrier__pthread_8h_source.html#l00034">34</a> of file <a class="el" href="cimunit__barrier__pthread_8h_source.html">cimunit_barrier_pthread.h</a>.</p>
+<p>Definition at line <a class="el" href="cimunit__barrier__pthread_8h_source.html#l00041">41</a> of file <a class="el" href="cimunit__barrier__pthread_8h_source.html">cimunit_barrier_pthread.h</a>.</p>
 </div><hr/><h2>Field Documentation</h2>
 <a class="anchor" id="a4753abd496c2dcd770b338d7133f6b32"></a><!-- doxytag: member="cimunit_barrier::cond" ref="a4753abd496c2dcd770b338d7133f6b32" args="" -->
 <div class="memitem">
@@ -81,7 +83,7 @@ Data Fields</h2></td></tr>
 
 <p>Pthread condition used to support the mutex/condition construct. </p>
 
-<p>Definition at line <a class="el" href="cimunit__barrier__pthread_8h_source.html#l00038">38</a> of file <a class="el" href="cimunit__barrier__pthread_8h_source.html">cimunit_barrier_pthread.h</a>.</p>
+<p>Definition at line <a class="el" href="cimunit__barrier__pthread_8h_source.html#l00045">45</a> of file <a class="el" href="cimunit__barrier__pthread_8h_source.html">cimunit_barrier_pthread.h</a>.</p>
 
 </div>
 </div>
@@ -98,7 +100,7 @@ Data Fields</h2></td></tr>
 
 <p>Semaphore used to pend threads waiting on this barrier. </p>
 
-<p>Definition at line <a class="el" href="cimunit__barrier__vxworks_8h_source.html#l00041">41</a> of file <a class="el" href="cimunit__barrier__vxworks_8h_source.html">cimunit_barrier_vxworks.h</a>.</p>
+<p>Definition at line <a class="el" href="cimunit__barrier__vxworks_8h_source.html#l00047">47</a> of file <a class="el" href="cimunit__barrier__vxworks_8h_source.html">cimunit_barrier_vxworks.h</a>.</p>
 
 </div>
 </div>
@@ -115,7 +117,7 @@ Data Fields</h2></td></tr>
 
 <p>Is the barrier locked. True if locked, else false. </p>
 
-<p>Definition at line <a class="el" href="cimunit__barrier__pthread_8h_source.html#l00040">40</a> of file <a class="el" href="cimunit__barrier__pthread_8h_source.html">cimunit_barrier_pthread.h</a>.</p>
+<p>Definition at line <a class="el" href="cimunit__barrier__pthread_8h_source.html#l00047">47</a> of file <a class="el" href="cimunit__barrier__pthread_8h_source.html">cimunit_barrier_pthread.h</a>.</p>
 
 </div>
 </div>
@@ -132,7 +134,7 @@ Data Fields</h2></td></tr>
 
 <p>Mutex used to support the mutex/condition construct. </p>
 
-<p>Definition at line <a class="el" href="cimunit__barrier__vxworks_8h_source.html#l00038">38</a> of file <a class="el" href="cimunit__barrier__vxworks_8h_source.html">cimunit_barrier_vxworks.h</a>.</p>
+<p>Definition at line <a class="el" href="cimunit__barrier__vxworks_8h_source.html#l00044">44</a> of file <a class="el" href="cimunit__barrier__vxworks_8h_source.html">cimunit_barrier_vxworks.h</a>.</p>
 
 </div>
 </div>
@@ -149,7 +151,7 @@ Data Fields</h2></td></tr>
 
 <p>Mutex used to support the mutex/condition construct. </p>
 
-<p>Definition at line <a class="el" href="cimunit__barrier__pthread_8h_source.html#l00036">36</a> of file <a class="el" href="cimunit__barrier__pthread_8h_source.html">cimunit_barrier_pthread.h</a>.</p>
+<p>Definition at line <a class="el" href="cimunit__barrier__pthread_8h_source.html#l00043">43</a> of file <a class="el" href="cimunit__barrier__pthread_8h_source.html">cimunit_barrier_pthread.h</a>.</p>
 
 </div>
 </div>

@@ -65,7 +65,7 @@
 <a name="l00042"></a>00042     }
 <a name="l00043"></a>00043     
 <a name="l00044"></a>00044     <span class="keyword">event</span>-&gt;action_events = <a class="code" href="group__cimunit__event__list.html#gae4f91b31c461550b22c9cccc1f47fb98">cimunit_event_list_init</a>();
-<a name="l00045"></a>00045     <a class="code" href="group__cimunit__barrier.html#gad77db95cf61e7181ff173daf3cc5bd3a">cimunit_barrier_init</a>(&amp;(event-&gt;<a class="code" href="structcimunit__event.html#a4e80e33d5c358dbfdfc0952c48abdfae">condition_barrier</a>));
+<a name="l00045"></a>00045     <a class="code" href="group__cimunit__barrier.html#gad77db95cf61e7181ff173daf3cc5bd3a" title="Create a new barrier.">cimunit_barrier_init</a>(&amp;(event-&gt;<a class="code" href="structcimunit__event.html#a4e80e33d5c358dbfdfc0952c48abdfae">condition_barrier</a>));
 <a name="l00046"></a>00046 
 <a name="l00047"></a>00047     <span class="keyword">event</span>-&gt;is_action = <a class="code" href="cimunit__platform__darwin_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a>;
 <a name="l00048"></a>00048 }
@@ -79,7 +79,7 @@
 <a name="l00056"></a>00056 
 <a name="l00057"></a><a class="code" href="group__cimunit__event.html#ga5e0967898d7c4da9bf369333aa6ac941">00057</a> <span class="keywordtype">void</span> <a class="code" href="group__cimunit__event.html#ga5e0967898d7c4da9bf369333aa6ac941">cimunit_event_destroy</a>(<a class="code" href="structcimunit__event.html" title="Structure defining a CIMUnit event.">cimunit_event_t</a> *event) {
 <a name="l00058"></a>00058     <a class="code" href="group__cimunit__event__list.html#ga9b24f540b6084a467da109764ab543e9">cimunit_event_list_destroy</a>(&amp;event-&gt;<a class="code" href="structcimunit__event.html#af05ecdcd9f4e1c1f27b570a2d6b71117" title="List of action events that wait on this condition event.">action_events</a>); 
-<a name="l00059"></a>00059     <a class="code" href="group__cimunit__barrier.html#ga725c2e64e984f6beeae709b2305d2605">cimunit_barrier_destroy</a>(&amp;(event-&gt;<a class="code" href="structcimunit__event.html#a4e80e33d5c358dbfdfc0952c48abdfae">condition_barrier</a>));
+<a name="l00059"></a>00059     <a class="code" href="group__cimunit__barrier.html#ga725c2e64e984f6beeae709b2305d2605" title="Destroy a barrier.">cimunit_barrier_destroy</a>(&amp;(event-&gt;<a class="code" href="structcimunit__event.html#a4e80e33d5c358dbfdfc0952c48abdfae">condition_barrier</a>));
 <a name="l00060"></a>00060 }
 <a name="l00061"></a>00061 
 <a name="l00062"></a>00062 

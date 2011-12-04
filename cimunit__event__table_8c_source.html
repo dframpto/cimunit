@@ -52,7 +52,7 @@
 <a name="l00029"></a>00029   <a class="code" href="structcimunit__event.html" title="Structure defining a CIMUnit event.">cimunit_event_t</a> *event)
 <a name="l00030"></a>00030 {
 <a name="l00031"></a>00031   entry-&gt;<a class="code" href="structevent__table__entry.html#a1422ab20b6cdcb1d372c7901c280e001" title="The a pointer to the event that is being represented by this entry.">event</a> = event;
-<a name="l00032"></a>00032   entry-&gt;<a class="code" href="structevent__table__entry.html#a50650adc3d7b3be49e0a8db405a4eec2" title="The thread id of the thread that fired the event.">thread</a> = <a class="code" href="group__cimunit__thread.html#gac9b57c4e9446524146f04f224bd4f684">cimunit_thread_self</a>();
+<a name="l00032"></a>00032   entry-&gt;<a class="code" href="structevent__table__entry.html#a50650adc3d7b3be49e0a8db405a4eec2" title="The thread id of the thread that fired the event.">thread</a> = <a class="code" href="group__cimunit__thread.html#gac9b57c4e9446524146f04f224bd4f684" title="Get identifier of current thread.">cimunit_thread_self</a>();
 <a name="l00033"></a>00033   entry-&gt;<a class="code" href="structevent__table__entry.html#abdc10c895d38e864ef5353fe8e9ab8bd">next</a> = NULL; 
 <a name="l00035"></a>00035   <span class="keywordflow">return</span> 0;
 <a name="l00036"></a>00036 }
@@ -68,7 +68,7 @@
 <a name="l00046"></a>00046   event_table-&gt;<a class="code" href="structcimunit__event__table.html#ae0aec94fcd8bf68767e1cb7a65befbef" title="The head table entry. Is initially NULL.">head</a> = NULL;
 <a name="l00047"></a>00047   event_table-&gt;<a class="code" href="structcimunit__event__table.html#a772c663818c9fc73047374a6f91934ae" title="The tail table entry. Is initially NULL.">tail</a> = NULL;
 <a name="l00048"></a>00048   event_table-&gt;<a class="code" href="structcimunit__event__table.html#a954075a20378f4ca18c4751a8d8fcc5b" title="The thread table to use for thread name lookups.">thread_table</a> = thread_table;
-<a name="l00049"></a>00049   <a class="code" href="group__cimunit__mutex.html#ga07a2fd2b277af2e44ca2033e05524bd6">cimunit_mutex_init</a>(&amp;(event_table-&gt;<a class="code" href="structcimunit__event__table.html#aced26bafc1ef6d633870fdb238913b90">lock</a>), NULL);
+<a name="l00049"></a>00049   <a class="code" href="group__cimunit__mutex.html#ga07a2fd2b277af2e44ca2033e05524bd6" title="Create a new mutex.">cimunit_mutex_init</a>(&amp;(event_table-&gt;<a class="code" href="structcimunit__event__table.html#aced26bafc1ef6d633870fdb238913b90">lock</a>), NULL);
 <a name="l00051"></a>00051   <span class="keywordflow">return</span> 0;
 <a name="l00052"></a>00052 }
 <a name="l00053"></a>00053 
@@ -80,7 +80,7 @@
 <a name="l00059"></a>00059     free(current_entry);
 <a name="l00060"></a>00060     current_entry = event_table-&gt;<a class="code" href="structcimunit__event__table.html#ae0aec94fcd8bf68767e1cb7a65befbef" title="The head table entry. Is initially NULL.">head</a>;
 <a name="l00061"></a>00061   }
-<a name="l00062"></a>00062   <a class="code" href="group__cimunit__mutex.html#ga5ebf7b4017b45f95922c697b8cb4b28d">cimunit_mutex_destroy</a>(&amp;(event_table-&gt;<a class="code" href="structcimunit__event__table.html#aced26bafc1ef6d633870fdb238913b90">lock</a>));
+<a name="l00062"></a>00062   <a class="code" href="group__cimunit__mutex.html#ga5ebf7b4017b45f95922c697b8cb4b28d" title="Destroy a mutex.">cimunit_mutex_destroy</a>(&amp;(event_table-&gt;<a class="code" href="structcimunit__event__table.html#aced26bafc1ef6d633870fdb238913b90">lock</a>));
 <a name="l00064"></a>00064   <span class="keywordflow">return</span> 0;
 <a name="l00065"></a>00065 }
 <a name="l00066"></a>00066 
@@ -92,7 +92,7 @@
 <a name="l00072"></a>00072   <a class="code" href="structevent__table__entry.html" title="Structure defining a CIMUnit event table entry.">cimunit_event_table_entry_t</a> *new_entry = 
 <a name="l00073"></a>00073     (<a class="code" href="structevent__table__entry.html" title="Structure defining a CIMUnit event table entry.">cimunit_event_table_entry_t</a>*)malloc(<span class="keyword">sizeof</span>(<a class="code" href="structevent__table__entry.html" title="Structure defining a CIMUnit event table entry.">cimunit_event_table_entry_t</a>));
 <a name="l00074"></a>00074   <a class="code" href="group__cimunit__event__table.html#gac6fc553576c8e388bce3ba9b28dcd41e">cimunit_event_table_entry_init</a>(new_entry, event);
-<a name="l00075"></a>00075   <a class="code" href="group__cimunit__mutex.html#ga952779f6b5b0d1bae6e0af1163679adc">cimunit_mutex_lock</a>(&amp;(event_table-&gt;<a class="code" href="structcimunit__event__table.html#aced26bafc1ef6d633870fdb238913b90">lock</a>));
+<a name="l00075"></a>00075   <a class="code" href="group__cimunit__mutex.html#ga952779f6b5b0d1bae6e0af1163679adc" title="Lock a mutex.">cimunit_mutex_lock</a>(&amp;(event_table-&gt;<a class="code" href="structcimunit__event__table.html#aced26bafc1ef6d633870fdb238913b90">lock</a>));
 <a name="l00076"></a>00076   <span class="keywordflow">if</span>(event_table-&gt;<a class="code" href="structcimunit__event__table.html#ae0aec94fcd8bf68767e1cb7a65befbef" title="The head table entry. Is initially NULL.">head</a> == NULL){
 <a name="l00077"></a>00077     event_table-&gt;<a class="code" href="structcimunit__event__table.html#ae0aec94fcd8bf68767e1cb7a65befbef" title="The head table entry. Is initially NULL.">head</a> = new_entry;
 <a name="l00078"></a>00078     event_table-&gt;<a class="code" href="structcimunit__event__table.html#a772c663818c9fc73047374a6f91934ae" title="The tail table entry. Is initially NULL.">tail</a> = new_entry;
@@ -101,7 +101,7 @@
 <a name="l00081"></a>00081     event_table-&gt;<a class="code" href="structcimunit__event__table.html#a772c663818c9fc73047374a6f91934ae" title="The tail table entry. Is initially NULL.">tail</a>-&gt;<a class="code" href="structevent__table__entry.html#abdc10c895d38e864ef5353fe8e9ab8bd">next</a> = new_entry;
 <a name="l00082"></a>00082     event_table-&gt;<a class="code" href="structcimunit__event__table.html#a772c663818c9fc73047374a6f91934ae" title="The tail table entry. Is initially NULL.">tail</a> = new_entry;
 <a name="l00083"></a>00083   }
-<a name="l00084"></a>00084   <a class="code" href="group__cimunit__mutex.html#ga966f0bdd952ca4b90a01246a86f93dc2">cimunit_mutex_unlock</a>(&amp;(event_table-&gt;<a class="code" href="structcimunit__event__table.html#aced26bafc1ef6d633870fdb238913b90">lock</a>));
+<a name="l00084"></a>00084   <a class="code" href="group__cimunit__mutex.html#ga966f0bdd952ca4b90a01246a86f93dc2" title="Unlock a mutex.">cimunit_mutex_unlock</a>(&amp;(event_table-&gt;<a class="code" href="structcimunit__event__table.html#aced26bafc1ef6d633870fdb238913b90">lock</a>));
 <a name="l00085"></a>00085 
 <a name="l00086"></a>00086   <span class="keywordflow">if</span>(entry_added != NULL){
 <a name="l00087"></a>00087     (*entry_added) = new_entry;

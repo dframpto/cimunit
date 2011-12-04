@@ -49,7 +49,7 @@
 <a name="l00025"></a>00025 
 <a name="l00026"></a><a class="code" href="group__cimunit__thread__table.html#ga17ee529b11a8294c1014de336c2d7804">00026</a> <span class="keywordtype">int</span> <a class="code" href="group__cimunit__thread__table.html#ga17ee529b11a8294c1014de336c2d7804">cimunit_thread_table_element_init</a>(
 <a name="l00027"></a>00027   <a class="code" href="structcimunit__thread__table__element.html" title="Structure used to map a thread to the name of the thread.">cimunit_thread_table_element_t</a> *thread_table_element,
-<a name="l00028"></a>00028   <a class="code" href="cimunit__thread__pthread_8h.html#a2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a> thread,
+<a name="l00028"></a>00028   <a class="code" href="group__cimunit__thread.html#ga2fc2dc9efa757387178abb66b0d15c44" title="Pthread implementation of a thread ID.">cimunit_thread_t</a> thread,
 <a name="l00029"></a>00029   <span class="keyword">const</span> <span class="keywordtype">char</span> *name)
 <a name="l00030"></a>00030 {
 <a name="l00031"></a>00031   thread_table_element-&gt;<a class="code" href="structcimunit__thread__table__element.html#ab41a992bb80cde61cddf207ef7577507">thread</a> = thread;
@@ -87,7 +87,7 @@
 <a name="l00063"></a>00063 
 <a name="l00064"></a><a class="code" href="cimunit__thread__table_8c.html#a18e2ad49eb56ac9ec2513be8d402aa0e">00064</a> <span class="keywordtype">int</span> <a class="code" href="cimunit__thread__table_8c.html#a18e2ad49eb56ac9ec2513be8d402aa0e">cimunit_find_thread_in_table</a>(
 <a name="l00065"></a>00065   <span class="keyword">const</span> <a class="code" href="structcimunit__thread__table.html" title="Structure serving as the entry point for the thread name list.">cimunit_thread_table_t</a> *thread_table,
-<a name="l00066"></a>00066   <a class="code" href="cimunit__thread__pthread_8h.html#a2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a> thread,
+<a name="l00066"></a>00066   <a class="code" href="group__cimunit__thread.html#ga2fc2dc9efa757387178abb66b0d15c44" title="Pthread implementation of a thread ID.">cimunit_thread_t</a> thread,
 <a name="l00067"></a>00067   <a class="code" href="structcimunit__thread__table__element.html" title="Structure used to map a thread to the name of the thread.">cimunit_thread_table_element_t</a> **found_element)
 <a name="l00068"></a>00068 {
 <a name="l00069"></a>00069   <a class="code" href="structcimunit__thread__table__element.html" title="Structure used to map a thread to the name of the thread.">cimunit_thread_table_element_t</a> *current_element = thread_table-&gt;<a class="code" href="structcimunit__thread__table.html#abbb1b1425402f4af90cdce527e404ea0">head</a>;
@@ -108,7 +108,7 @@
 <a name="l00084"></a>00084 
 <a name="l00085"></a><a class="code" href="group__cimunit__thread__table.html#ga32a593395206887e630a99be5eafe37b">00085</a> <span class="keywordtype">int</span> <a class="code" href="group__cimunit__thread__table.html#ga32a593395206887e630a99be5eafe37b">cimunit_set_thread_name</a>(
 <a name="l00086"></a>00086   <a class="code" href="structcimunit__thread__table.html" title="Structure serving as the entry point for the thread name list.">cimunit_thread_table_t</a> *thread_table,
-<a name="l00087"></a>00087   <a class="code" href="cimunit__thread__pthread_8h.html#a2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a> thread,
+<a name="l00087"></a>00087   <a class="code" href="group__cimunit__thread.html#ga2fc2dc9efa757387178abb66b0d15c44" title="Pthread implementation of a thread ID.">cimunit_thread_t</a> thread,
 <a name="l00088"></a>00088   <span class="keyword">const</span> <span class="keywordtype">char</span> *name)
 <a name="l00089"></a>00089 {
 <a name="l00090"></a>00090   <a class="code" href="structcimunit__thread__table__element.html" title="Structure used to map a thread to the name of the thread.">cimunit_thread_table_element_t</a> *thread_table_element = NULL;
@@ -130,7 +130,7 @@
 <a name="l00106"></a>00106 
 <a name="l00107"></a><a class="code" href="group__cimunit__thread__table.html#ga45c85fba836119a234c7cd6b3229ee19">00107</a> <span class="keywordtype">int</span> <a class="code" href="group__cimunit__thread__table.html#ga45c85fba836119a234c7cd6b3229ee19">cimunit_get_thread_name</a>(
 <a name="l00108"></a>00108   <span class="keyword">const</span> <a class="code" href="structcimunit__thread__table.html" title="Structure serving as the entry point for the thread name list.">cimunit_thread_table_t</a> *thread_table,
-<a name="l00109"></a>00109   <a class="code" href="cimunit__thread__pthread_8h.html#a2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a> thread,
+<a name="l00109"></a>00109   <a class="code" href="group__cimunit__thread.html#ga2fc2dc9efa757387178abb66b0d15c44" title="Pthread implementation of a thread ID.">cimunit_thread_t</a> thread,
 <a name="l00110"></a>00110   <span class="keyword">const</span> <span class="keywordtype">char</span> **buf)
 <a name="l00111"></a>00111 {
 <a name="l00112"></a>00112   <a class="code" href="structcimunit__thread__table__element.html" title="Structure used to map a thread to the name of the thread.">cimunit_thread_table_element_t</a> *thread_table_element = NULL;

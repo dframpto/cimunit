@@ -55,19 +55,21 @@
 <a name="l00032"></a>00032 <span class="preprocessor"></span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {
 <a name="l00033"></a>00033 <span class="preprocessor">#endif</span>
 <a name="l00034"></a>00034 <span class="preprocessor"></span>  
-<a name="l00036"></a>00036 <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structcimunit__barrier.html" title="Structure containing the data needed to support the barrier.">cimunit_barrier</a> {
-<a name="l00038"></a><a class="code" href="structcimunit__barrier.html#a8904922137bec6f25025e9706e5a8363">00038</a>     <a class="code" href="cimunit__mutex__pthread_8h.html#a55879c2113e9a2074ebbb10f19952ba7">cimunit_mutex_t</a> <a class="code" href="structcimunit__barrier.html#a8904922137bec6f25025e9706e5a8363" title="Mutex used to support the mutex/condition construct.">mutex</a>;
-<a name="l00039"></a>00039 
-<a name="l00041"></a><a class="code" href="structcimunit__barrier.html#a128710abaf2efd96fad52222066874b5">00041</a>     SEM_ID <a class="code" href="structcimunit__barrier.html#a128710abaf2efd96fad52222066874b5" title="Semaphore used to pend threads waiting on this barrier.">cond</a>;
-<a name="l00042"></a>00042 
-<a name="l00044"></a>00044     <a class="code" href="cimunit__platform__darwin_8h.html#ae4cc35dcc70810fa972cc8a5185a28fa">BOOL</a> <a class="code" href="structcimunit__barrier.html#aa1c23392904e563c82ecd7ac57dec156" title="Is the barrier locked. True if locked, else false.">is_locked</a>;
-<a name="l00045"></a>00045 } <a class="code" href="cimunit__barrier__pthread_8h.html#afd1d25f73d8d6b93d2b9a7271fdc7660" title="Structure containing the data needed to support the barrier.">cimunit_barrier_t</a>;
-<a name="l00046"></a>00046 
-<a name="l00047"></a>00047 <span class="preprocessor">#ifdef __cplusplus</span>
-<a name="l00048"></a>00048 <span class="preprocessor"></span>}
-<a name="l00049"></a>00049 <span class="preprocessor">#endif</span>
-<a name="l00050"></a>00050 <span class="preprocessor"></span>  
-<a name="l00051"></a>00051 <span class="preprocessor">#endif // CIMUNIT_BARRIER_VXWORKS_H</span>
+<a name="l00037"></a>00037 
+<a name="l00050"></a><a class="code" href="structcimunit__barrier__vxworks.html">00050</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structcimunit__barrier__vxworks.html" title="VxWorks barrier structure.">cimunit_barrier_vxworks</a> {
+<a name="l00052"></a><a class="code" href="structcimunit__barrier__vxworks.html#a1baf25ef27ffd0d85402911f226f4acc">00052</a>     <a class="code" href="group__cimunit__mutex.html#ga55879c2113e9a2074ebbb10f19952ba7" title="Concrete type for mutex under pthread.">cimunit_mutex_t</a> <a class="code" href="structcimunit__barrier__vxworks.html#a1baf25ef27ffd0d85402911f226f4acc" title="Mutex used to support the mutex/condition construct.">mutex</a>;
+<a name="l00053"></a>00053 
+<a name="l00055"></a><a class="code" href="structcimunit__barrier__vxworks.html#a5aec08d7ec55f888ecf638db27e91874">00055</a>     SEM_ID <a class="code" href="structcimunit__barrier__vxworks.html#a5aec08d7ec55f888ecf638db27e91874" title="Semaphore used to pend threads waiting on this barrier.">cond</a>;
+<a name="l00056"></a>00056 
+<a name="l00058"></a><a class="code" href="structcimunit__barrier__vxworks.html#a1b9ac2b513a8ce97cabfcbe683c90165">00058</a>     <a class="code" href="cimunit__platform__darwin_8h.html#ae4cc35dcc70810fa972cc8a5185a28fa">BOOL</a> <a class="code" href="structcimunit__barrier__vxworks.html#a1b9ac2b513a8ce97cabfcbe683c90165" title="Is the barrier locked. True if locked, else false.">is_locked</a>;
+<a name="l00059"></a>00059 } <a class="code" href="group__cimunit__barrier.html#gaeef6b196d5b27f22d92bc89a469081bc" title="Pthreads barrier structure.">cimunit_barrier_t</a>;
+<a name="l00060"></a>00060 
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063 <span class="preprocessor">#ifdef __cplusplus</span>
+<a name="l00064"></a>00064 <span class="preprocessor"></span>}
+<a name="l00065"></a>00065 <span class="preprocessor">#endif</span>
+<a name="l00066"></a>00066 <span class="preprocessor"></span>  
+<a name="l00067"></a>00067 <span class="preprocessor">#endif // CIMUNIT_BARRIER_VXWORKS_H</span>
 </pre></div></div>
 </div>
 

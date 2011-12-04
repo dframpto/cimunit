@@ -53,17 +53,19 @@
 <a name="l00030"></a>00030 <span class="preprocessor"></span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {
 <a name="l00031"></a>00031 <span class="preprocessor">#endif</span>
 <a name="l00032"></a>00032 <span class="preprocessor"></span>
-<a name="l00034"></a><a class="code" href="structcimunit__barrier.html">00034</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structcimunit__barrier.html" title="Structure containing the data needed to support the barrier.">cimunit_barrier</a> {
-<a name="l00036"></a><a class="code" href="structcimunit__barrier.html#a574b0d92006f383774389c4f4f6e6b3f">00036</a>     pthread_mutex_t <a class="code" href="structcimunit__barrier.html#a574b0d92006f383774389c4f4f6e6b3f" title="Mutex used to support the mutex/condition construct.">mutex</a>;
-<a name="l00038"></a><a class="code" href="structcimunit__barrier.html#a4753abd496c2dcd770b338d7133f6b32">00038</a>     pthread_cond_t <a class="code" href="structcimunit__barrier.html#a4753abd496c2dcd770b338d7133f6b32" title="Pthread condition used to support the mutex/condition construct.">cond</a>;
-<a name="l00040"></a><a class="code" href="structcimunit__barrier.html#aa1c23392904e563c82ecd7ac57dec156">00040</a>     <a class="code" href="cimunit__platform__darwin_8h.html#ae4cc35dcc70810fa972cc8a5185a28fa">BOOL</a> <a class="code" href="structcimunit__barrier.html#aa1c23392904e563c82ecd7ac57dec156" title="Is the barrier locked. True if locked, else false.">is_locked</a>;
-<a name="l00041"></a>00041 } <a class="code" href="cimunit__barrier__pthread_8h.html#afd1d25f73d8d6b93d2b9a7271fdc7660" title="Structure containing the data needed to support the barrier.">cimunit_barrier_t</a>;
-<a name="l00042"></a>00042 
-<a name="l00043"></a>00043 <span class="preprocessor">#ifdef __cplusplus</span>
-<a name="l00044"></a>00044 <span class="preprocessor"></span>}
-<a name="l00045"></a>00045 <span class="preprocessor">#endif</span>
-<a name="l00046"></a>00046 <span class="preprocessor"></span>  
-<a name="l00047"></a>00047 <span class="preprocessor">#endif // CIMUNIT_BARRIER_PTHREAD_H</span>
+<a name="l00035"></a>00035 
+<a name="l00045"></a><a class="code" href="structcimunit__barrier__pthread.html">00045</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structcimunit__barrier__pthread.html" title="Pthreads barrier structure.">cimunit_barrier_pthread</a> {
+<a name="l00047"></a><a class="code" href="structcimunit__barrier__pthread.html#a1f06fa95ce106ab9c761228a3d2645b4">00047</a>     pthread_mutex_t <a class="code" href="structcimunit__barrier__pthread.html#a1f06fa95ce106ab9c761228a3d2645b4" title="Mutex used to support the mutex/condition construct.">mutex</a>;
+<a name="l00049"></a><a class="code" href="structcimunit__barrier__pthread.html#a85960b6356c5a790e2e515e95af6bc51">00049</a>     pthread_cond_t <a class="code" href="structcimunit__barrier__pthread.html#a85960b6356c5a790e2e515e95af6bc51" title="Pthread condition used to support the mutex/condition construct.">cond</a>;
+<a name="l00051"></a><a class="code" href="structcimunit__barrier__pthread.html#a1a90f7c95d01f8e674d2515c1a1705e8">00051</a>     <a class="code" href="cimunit__platform__darwin_8h.html#ae4cc35dcc70810fa972cc8a5185a28fa">BOOL</a> <a class="code" href="structcimunit__barrier__pthread.html#a1a90f7c95d01f8e674d2515c1a1705e8" title="Is the barrier locked. True if locked, else false.">is_locked</a>;
+<a name="l00052"></a>00052 } <a class="code" href="group__cimunit__barrier.html#gaeef6b196d5b27f22d92bc89a469081bc" title="Pthreads barrier structure.">cimunit_barrier_t</a>;
+<a name="l00053"></a>00053 
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056 <span class="preprocessor">#ifdef __cplusplus</span>
+<a name="l00057"></a>00057 <span class="preprocessor"></span>}
+<a name="l00058"></a>00058 <span class="preprocessor">#endif</span>
+<a name="l00059"></a>00059 <span class="preprocessor"></span>  
+<a name="l00060"></a>00060 <span class="preprocessor">#endif // CIMUNIT_BARRIER_PTHREAD_H</span>
 </pre></div></div>
 </div>
 

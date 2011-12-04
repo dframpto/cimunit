@@ -33,20 +33,77 @@
 </div>
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">cimunit_barrier Module</div>  </div>
 </div>
 <div class="contents">
 <table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimunit__barrier__pthread.html">cimunit_barrier_pthread</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Pthreads barrier structure.  <a href="structcimunit__barrier__pthread.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimunit__barrier__vxworks.html">cimunit_barrier_vxworks</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">VxWorks barrier structure.  <a href="structcimunit__barrier__vxworks.html#details">More...</a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef struct <br class="typebreak"/>
+<a class="el" href="structcimunit__barrier__pthread.html">cimunit_barrier_pthread</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cimunit__barrier.html#gaeef6b196d5b27f22d92bc89a469081bc">cimunit_barrier_t</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Pthreads barrier structure.  <a href="#gaeef6b196d5b27f22d92bc89a469081bc"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef struct <br class="typebreak"/>
+<a class="el" href="structcimunit__barrier__vxworks.html">cimunit_barrier_vxworks</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cimunit__barrier.html#gaa4a6cf71150a398093485be5efc0b962">cimunit_barrier_t</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">VxWorks barrier structure.  <a href="#gaa4a6cf71150a398093485be5efc0b962"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cimunit__barrier.html#gad77db95cf61e7181ff173daf3cc5bd3a">cimunit_barrier_init</a> (<a class="el" href="structcimunit__barrier.html">cimunit_barrier_t</a> *barrier)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cimunit__barrier.html#ga725c2e64e984f6beeae709b2305d2605">cimunit_barrier_destroy</a> (<a class="el" href="structcimunit__barrier.html">cimunit_barrier_t</a> *barrier)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cimunit__barrier.html#ga872b8d321731d97d2023530c2c33acd8">cimunit_barrier_wait</a> (<a class="el" href="structcimunit__barrier.html">cimunit_barrier_t</a> *barrier)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cimunit__barrier.html#ga7baecefdf81b77c2caf23e6830bfac20">cimunit_barrier_unlock</a> (<a class="el" href="structcimunit__barrier.html">cimunit_barrier_t</a> *barrier)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cimunit__barrier.html#gae1d2c9821f078d6fa29aa44ff4c2919c">cimunit_barrier_lock</a> (<a class="el" href="structcimunit__barrier.html">cimunit_barrier_t</a> *barrier)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cimunit__barrier.html#gad77db95cf61e7181ff173daf3cc5bd3a">cimunit_barrier_init</a> (<a class="el" href="structcimunit__barrier__pthread.html">cimunit_barrier_t</a> *barrier)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new barrier.  <a href="#gad77db95cf61e7181ff173daf3cc5bd3a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cimunit__barrier.html#ga725c2e64e984f6beeae709b2305d2605">cimunit_barrier_destroy</a> (<a class="el" href="structcimunit__barrier__pthread.html">cimunit_barrier_t</a> *barrier)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy a barrier.  <a href="#ga725c2e64e984f6beeae709b2305d2605"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cimunit__barrier.html#ga872b8d321731d97d2023530c2c33acd8">cimunit_barrier_wait</a> (<a class="el" href="structcimunit__barrier__pthread.html">cimunit_barrier_t</a> *barrier)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Wait at the barrier until it is unlocked.  <a href="#ga872b8d321731d97d2023530c2c33acd8"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cimunit__barrier.html#ga7baecefdf81b77c2caf23e6830bfac20">cimunit_barrier_unlock</a> (<a class="el" href="structcimunit__barrier__pthread.html">cimunit_barrier_t</a> *barrier)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Unlock a barrier.  <a href="#ga7baecefdf81b77c2caf23e6830bfac20"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cimunit__barrier.html#gae1d2c9821f078d6fa29aa44ff4c2919c">cimunit_barrier_lock</a> (<a class="el" href="structcimunit__barrier__pthread.html">cimunit_barrier_t</a> *barrier)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Lock a barrier.  <a href="#gae1d2c9821f078d6fa29aa44ff4c2919c"></a><br/></td></tr>
 </table>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<p>The cimunit_barrier object is the key component that allows CIMUnit to operate. It provides a mechanism where multiple threads can pend on a single object and can be unblocked en masse. A locked barrier causes all threads that wait on it to be blocked while an unlocked barrier causes all threads currently waiting on it to be unblocked and any new threads that wait on it to not be blocked. </p>
+<hr/><h2>Typedef Documentation</h2>
+<a class="anchor" id="gaeef6b196d5b27f22d92bc89a469081bc"></a><!-- doxytag: member="cimunit_barrier_pthread.h::cimunit_barrier_t" ref="gaeef6b196d5b27f22d92bc89a469081bc" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structcimunit__barrier__pthread.html">cimunit_barrier_pthread</a>  <a class="el" href="structcimunit__barrier__pthread.html">cimunit_barrier_t</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Pthreads barrier structure. </p>
+<p>The pthreads implementation of the barrier uses a condition variable. When a thread waits on the barrier, the is_locked attribute is checked to determine if the barrier is locked or unlocked. If it's locked it waits on cond and is blocked. When the barrier is unlocked, cond is signaled and one of the waiting threads unblocks. That thread then signals cond again which wakes another thread. This continues until all threads that were blocked on cond have been unblocked. </p>
+
+</div>
+</div>
+<a class="anchor" id="gaa4a6cf71150a398093485be5efc0b962"></a><!-- doxytag: member="cimunit_barrier_vxworks.h::cimunit_barrier_t" ref="gaa4a6cf71150a398093485be5efc0b962" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structcimunit__barrier__vxworks.html">cimunit_barrier_vxworks</a>  <a class="el" href="structcimunit__barrier__pthread.html">cimunit_barrier_t</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>VxWorks barrier structure. </p>
+<p>Structure containing the data needed to support the barrier under VxWorks. It operates by using a single mutex.</p>
+<p>The key component of the barrier is the the counting semaphore, cond. It is initialized to have no avaialable resources and when the barrier is locked, all threads that attempt to acquire cond and are blocked. When the barrier is unlocked, the unlock action releases the semaphore, which unblocks one of the tasks. That unblocked task then releases the semaphore again which continues until all tasks pending on cond have been unblocked. </p>
+
+</div>
+</div>
 <hr/><h2>Function Documentation</h2>
 <a class="anchor" id="ga725c2e64e984f6beeae709b2305d2605"></a><!-- doxytag: member="cimunit_barrier.h::cimunit_barrier_destroy" ref="ga725c2e64e984f6beeae709b2305d2605" args="(cimunit_barrier_t *barrier)" -->
 <div class="memitem">
@@ -55,14 +112,15 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int cimunit_barrier_destroy </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structcimunit__barrier.html">cimunit_barrier_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structcimunit__barrier__pthread.html">cimunit_barrier_t</a> *&#160;</td>
           <td class="paramname"><em>barrier</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Destroy a barrier</p>
+
+<p>Destroy a barrier. </p>
 <p>Destroys a previously created barrier. The results are undefined if the barrier was never initialized.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -77,12 +135,7 @@ Functions</h2></td></tr>
 </p>
 
 <p>Definition at line <a class="el" href="cimunit__barrier__pthread_8c_source.html#l00037">37</a> of file <a class="el" href="cimunit__barrier__pthread_8c_source.html">cimunit_barrier_pthread.c</a>.</p>
-<div class="fragment"><pre class="fragment">{
-    pthread_cond_destroy(&amp;barrier-&gt;<a class="code" href="structcimunit__barrier.html#a4753abd496c2dcd770b338d7133f6b32" title="Pthread condition used to support the mutex/condition construct.">cond</a>);
-    pthread_mutex_destroy(&amp;barrier-&gt;<a class="code" href="structcimunit__barrier.html#a574b0d92006f383774389c4f4f6e6b3f" title="Mutex used to support the mutex/condition construct.">mutex</a>);
-   <span class="keywordflow">return</span> 0;
-}
-</pre></div>
+
 </div>
 </div>
 <a class="anchor" id="gad77db95cf61e7181ff173daf3cc5bd3a"></a><!-- doxytag: member="cimunit_barrier.h::cimunit_barrier_init" ref="gad77db95cf61e7181ff173daf3cc5bd3a" args="(cimunit_barrier_t *barrier)" -->
@@ -92,14 +145,15 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int cimunit_barrier_init </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structcimunit__barrier.html">cimunit_barrier_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structcimunit__barrier__pthread.html">cimunit_barrier_t</a> *&#160;</td>
           <td class="paramname"><em>barrier</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Create a new barrier.</p>
+
+<p>Create a new barrier. </p>
 <p>Create a new barrier and initialize it in the locked state.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -113,13 +167,7 @@ Functions</h2></td></tr>
 </p>
 
 <p>Definition at line <a class="el" href="cimunit__barrier__pthread_8c_source.html#l00027">27</a> of file <a class="el" href="cimunit__barrier__pthread_8c_source.html">cimunit_barrier_pthread.c</a>.</p>
-<div class="fragment"><pre class="fragment">{
-    pthread_mutex_init(&amp;barrier-&gt;<a class="code" href="structcimunit__barrier.html#a574b0d92006f383774389c4f4f6e6b3f" title="Mutex used to support the mutex/condition construct.">mutex</a>, NULL);
-    pthread_cond_init(&amp;barrier-&gt;<a class="code" href="structcimunit__barrier.html#a4753abd496c2dcd770b338d7133f6b32" title="Pthread condition used to support the mutex/condition construct.">cond</a>, NULL);
-    barrier-&gt;<a class="code" href="structcimunit__barrier.html#aa1c23392904e563c82ecd7ac57dec156" title="Is the barrier locked. True if locked, else false.">is_locked</a> = <span class="keyword">true</span>;
-    <span class="keywordflow">return</span> 0;
-}
-</pre></div>
+
 </div>
 </div>
 <a class="anchor" id="gae1d2c9821f078d6fa29aa44ff4c2919c"></a><!-- doxytag: member="cimunit_barrier.h::cimunit_barrier_lock" ref="gae1d2c9821f078d6fa29aa44ff4c2919c" args="(cimunit_barrier_t *barrier)" -->
@@ -129,15 +177,16 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void cimunit_barrier_lock </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structcimunit__barrier.html">cimunit_barrier_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structcimunit__barrier__pthread.html">cimunit_barrier_t</a> *&#160;</td>
           <td class="paramname"><em>barrier</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Lock a barrier</p>
-<p>Lock the barrier and prevent all the tasks currently waiting at the barrier to pend. New tasks that wait at the barrier will also pend.</p>
+
+<p>Lock a barrier. </p>
+<p>Lock the barrier and cause all new tasks that wait at the barrier to block.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">barrier</td><td>- the barrier to be locked </td></tr>
@@ -146,12 +195,7 @@ Functions</h2></td></tr>
 </dl>
 
 <p>Definition at line <a class="el" href="cimunit__barrier__pthread_8c_source.html#l00071">71</a> of file <a class="el" href="cimunit__barrier__pthread_8c_source.html">cimunit_barrier_pthread.c</a>.</p>
-<div class="fragment"><pre class="fragment">{
-    pthread_mutex_lock(&amp;barrier-&gt;<a class="code" href="structcimunit__barrier.html#a574b0d92006f383774389c4f4f6e6b3f" title="Mutex used to support the mutex/condition construct.">mutex</a>);
-    barrier-&gt;<a class="code" href="structcimunit__barrier.html#aa1c23392904e563c82ecd7ac57dec156" title="Is the barrier locked. True if locked, else false.">is_locked</a> = <span class="keyword">true</span>;
-    pthread_mutex_unlock(&amp;barrier-&gt;<a class="code" href="structcimunit__barrier.html#a574b0d92006f383774389c4f4f6e6b3f" title="Mutex used to support the mutex/condition construct.">mutex</a>);                    
-}
-</pre></div>
+
 </div>
 </div>
 <a class="anchor" id="ga7baecefdf81b77c2caf23e6830bfac20"></a><!-- doxytag: member="cimunit_barrier.h::cimunit_barrier_unlock" ref="ga7baecefdf81b77c2caf23e6830bfac20" args="(cimunit_barrier_t *barrier)" -->
@@ -161,15 +205,16 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void cimunit_barrier_unlock </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structcimunit__barrier.html">cimunit_barrier_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structcimunit__barrier__pthread.html">cimunit_barrier_t</a> *&#160;</td>
           <td class="paramname"><em>barrier</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Unlock a barrier</p>
-<p>Unlock the barrier and allow all tasks that are waiting at the barrier to continue. New tasks that wait at the barrier will be passed through</p>
+
+<p>Unlock a barrier. </p>
+<p>Unlock the barrier and unblock all tasks that are blocked at the barrier. New tasks that wait at the barrier will not be blocked.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">barrier</td><td>- the barrier to be unlocked </td></tr>
@@ -178,13 +223,7 @@ Functions</h2></td></tr>
 </dl>
 
 <p>Definition at line <a class="el" href="cimunit__barrier__pthread_8c_source.html#l00062">62</a> of file <a class="el" href="cimunit__barrier__pthread_8c_source.html">cimunit_barrier_pthread.c</a>.</p>
-<div class="fragment"><pre class="fragment">{
-    pthread_mutex_lock(&amp;barrier-&gt;<a class="code" href="structcimunit__barrier.html#a574b0d92006f383774389c4f4f6e6b3f" title="Mutex used to support the mutex/condition construct.">mutex</a>);
-    barrier-&gt;<a class="code" href="structcimunit__barrier.html#aa1c23392904e563c82ecd7ac57dec156" title="Is the barrier locked. True if locked, else false.">is_locked</a> = <span class="keyword">false</span>;
-    pthread_cond_signal(&amp;barrier-&gt;<a class="code" href="structcimunit__barrier.html#a4753abd496c2dcd770b338d7133f6b32" title="Pthread condition used to support the mutex/condition construct.">cond</a>);
-    pthread_mutex_unlock(&amp;barrier-&gt;<a class="code" href="structcimunit__barrier.html#a574b0d92006f383774389c4f4f6e6b3f" title="Mutex used to support the mutex/condition construct.">mutex</a>);                    
-}
-</pre></div>
+
 </div>
 </div>
 <a class="anchor" id="ga872b8d321731d97d2023530c2c33acd8"></a><!-- doxytag: member="cimunit_barrier.h::cimunit_barrier_wait" ref="ga872b8d321731d97d2023530c2c33acd8" args="(cimunit_barrier_t *barrier)" -->
@@ -194,15 +233,16 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void cimunit_barrier_wait </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structcimunit__barrier.html">cimunit_barrier_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structcimunit__barrier__pthread.html">cimunit_barrier_t</a> *&#160;</td>
           <td class="paramname"><em>barrier</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Wait at the barrier until it is unlocked</p>
-<p>Pause the task until the specified barrier is unlocked.</p>
+
+<p>Wait at the barrier until it is unlocked. </p>
+<p>Block the task until the specified barrier is unlocked.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">barrier</td><td>- the barrier to wait at </td></tr>
@@ -211,20 +251,7 @@ Functions</h2></td></tr>
 </dl>
 
 <p>Definition at line <a class="el" href="cimunit__barrier__pthread_8c_source.html#l00046">46</a> of file <a class="el" href="cimunit__barrier__pthread_8c_source.html">cimunit_barrier_pthread.c</a>.</p>
-<div class="fragment"><pre class="fragment">{
-    pthread_mutex_lock(&amp;barrier-&gt;<a class="code" href="structcimunit__barrier.html#a574b0d92006f383774389c4f4f6e6b3f" title="Mutex used to support the mutex/condition construct.">mutex</a>);
-    <span class="keywordflow">if</span> (barrier-&gt;<a class="code" href="structcimunit__barrier.html#aa1c23392904e563c82ecd7ac57dec156" title="Is the barrier locked. True if locked, else false.">is_locked</a>)
-    {
-        pthread_cond_wait(&amp;barrier-&gt;<a class="code" href="structcimunit__barrier.html#a4753abd496c2dcd770b338d7133f6b32" title="Pthread condition used to support the mutex/condition construct.">cond</a>, &amp;barrier-&gt;<a class="code" href="structcimunit__barrier.html#a574b0d92006f383774389c4f4f6e6b3f" title="Mutex used to support the mutex/condition construct.">mutex</a>);
-        <span class="keywordflow">if</span> (!barrier-&gt;<a class="code" href="structcimunit__barrier.html#aa1c23392904e563c82ecd7ac57dec156" title="Is the barrier locked. True if locked, else false.">is_locked</a>)
-        {
-            <span class="comment">// Let the next thread in line pass the barrier</span>
-            pthread_cond_signal(&amp;barrier-&gt;<a class="code" href="structcimunit__barrier.html#a4753abd496c2dcd770b338d7133f6b32" title="Pthread condition used to support the mutex/condition construct.">cond</a>);
-        }
-    }
-    pthread_mutex_unlock(&amp;barrier-&gt;<a class="code" href="structcimunit__barrier.html#a574b0d92006f383774389c4f4f6e6b3f" title="Mutex used to support the mutex/condition construct.">mutex</a>);
-}
-</pre></div>
+
 </div>
 </div>
 </div>

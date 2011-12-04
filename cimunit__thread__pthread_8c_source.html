@@ -46,8 +46,8 @@
 <a name="l00023"></a>00023 
 <a name="l00024"></a>00024 <span class="preprocessor">#include &lt;unistd.h&gt;</span>
 <a name="l00025"></a>00025 
-<a name="l00026"></a><a class="code" href="group__cimunit__thread.html#ga8e3c12f8934aa233bec75df29622315d">00026</a> <span class="keywordtype">int</span> <a class="code" href="group__cimunit__thread.html#ga8e3c12f8934aa233bec75df29622315d">cimunit_thread_create</a>(
-<a name="l00027"></a>00027   <a class="code" href="cimunit__thread__pthread_8h.html#a2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a> *<a class="code" href="cimunit__platform__darwin_8h.html#aae3356b63849abbe8789dd41648ee90a" title="As of Apple&#39;s gcc 4.2.1, restrict isn&#39;t supported, but __restrict is.">RESTRICT</a> thread, 
+<a name="l00026"></a><a class="code" href="group__cimunit__thread.html#ga8e3c12f8934aa233bec75df29622315d">00026</a> <span class="keywordtype">int</span> <a class="code" href="group__cimunit__thread.html#ga8e3c12f8934aa233bec75df29622315d" title="Create a new thread.">cimunit_thread_create</a>(
+<a name="l00027"></a>00027   <a class="code" href="group__cimunit__thread.html#ga2fc2dc9efa757387178abb66b0d15c44" title="Pthread implementation of a thread ID.">cimunit_thread_t</a> *<a class="code" href="cimunit__platform__darwin_8h.html#aae3356b63849abbe8789dd41648ee90a" title="As of Apple&#39;s gcc 4.2.1, restrict isn&#39;t supported, but __restrict is.">RESTRICT</a> thread, 
 <a name="l00028"></a>00028   <a class="code" href="group__cimunit__thread.html#ga6b3a63dcae9ebbb440ff6ced571415bc" title="Prototype for a thread entry point.">cimunit_task_entry_t</a> function,
 <a name="l00029"></a>00029   <span class="keywordtype">void</span> *<a class="code" href="cimunit__platform__darwin_8h.html#aae3356b63849abbe8789dd41648ee90a" title="As of Apple&#39;s gcc 4.2.1, restrict isn&#39;t supported, but __restrict is.">RESTRICT</a> arg)
 <a name="l00030"></a>00030 {
@@ -62,15 +62,15 @@
 <a name="l00039"></a>00039   <span class="keywordflow">return</span> result;
 <a name="l00040"></a>00040 }
 <a name="l00041"></a>00041 
-<a name="l00042"></a><a class="code" href="group__cimunit__thread.html#gae98228a2957bbf80ee622353cc0ac1f2">00042</a> <span class="keywordtype">int</span> <a class="code" href="group__cimunit__thread.html#gae98228a2957bbf80ee622353cc0ac1f2">cimunit_thread_join</a>(<a class="code" href="cimunit__thread__pthread_8h.html#a2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a> thread, <span class="keywordtype">void</span> **value_ptr){
+<a name="l00042"></a><a class="code" href="group__cimunit__thread.html#gae98228a2957bbf80ee622353cc0ac1f2">00042</a> <span class="keywordtype">int</span> <a class="code" href="group__cimunit__thread.html#gae98228a2957bbf80ee622353cc0ac1f2" title="Wait for thread to exit.">cimunit_thread_join</a>(<a class="code" href="group__cimunit__thread.html#ga2fc2dc9efa757387178abb66b0d15c44" title="Pthread implementation of a thread ID.">cimunit_thread_t</a> thread, <span class="keywordtype">void</span> **value_ptr){
 <a name="l00043"></a>00043   <span class="keywordflow">return</span> pthread_join(thread, value_ptr);
 <a name="l00044"></a>00044 }
 <a name="l00045"></a>00045 
-<a name="l00046"></a><a class="code" href="group__cimunit__thread.html#gac9b57c4e9446524146f04f224bd4f684">00046</a> <a class="code" href="cimunit__thread__pthread_8h.html#a2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a> <a class="code" href="group__cimunit__thread.html#gac9b57c4e9446524146f04f224bd4f684">cimunit_thread_self</a>(){
+<a name="l00046"></a><a class="code" href="group__cimunit__thread.html#gac9b57c4e9446524146f04f224bd4f684">00046</a> <a class="code" href="group__cimunit__thread.html#ga2fc2dc9efa757387178abb66b0d15c44" title="Pthread implementation of a thread ID.">cimunit_thread_t</a> <a class="code" href="group__cimunit__thread.html#gac9b57c4e9446524146f04f224bd4f684" title="Get identifier of current thread.">cimunit_thread_self</a>(){
 <a name="l00047"></a>00047   <span class="keywordflow">return</span> pthread_self();
 <a name="l00048"></a>00048 }
 <a name="l00049"></a>00049 
-<a name="l00050"></a><a class="code" href="group__cimunit__thread.html#ga4f034ea379073c1aa37f556937517efe">00050</a> <span class="keywordtype">void</span> <a class="code" href="group__cimunit__thread.html#ga4f034ea379073c1aa37f556937517efe">cimunit_thread_sleep</a>(<span class="keywordtype">int</span> time) {
+<a name="l00050"></a><a class="code" href="group__cimunit__thread.html#ga4f034ea379073c1aa37f556937517efe">00050</a> <span class="keywordtype">void</span> <a class="code" href="group__cimunit__thread.html#ga4f034ea379073c1aa37f556937517efe" title="Place thread to sleep.">cimunit_thread_sleep</a>(<span class="keywordtype">int</span> time) {
 <a name="l00051"></a>00051     usleep(time);
 <a name="l00052"></a>00052 }
 </pre></div></div>

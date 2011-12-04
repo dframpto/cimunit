@@ -59,23 +59,23 @@
 <a name="l00036"></a>00036 <span class="preprocessor"></span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {
 <a name="l00037"></a>00037 <span class="preprocessor">#endif</span>
 <a name="l00038"></a>00038 <span class="preprocessor"></span>
-<a name="l00041"></a>00041 
-<a name="l00048"></a>00048 <span class="keywordtype">int</span> <a class="code" href="group__cimunit__barrier.html#gad77db95cf61e7181ff173daf3cc5bd3a">cimunit_barrier_init</a>(<a class="code" href="structcimunit__barrier.html" title="Structure containing the data needed to support the barrier.">cimunit_barrier_t</a> *barrier);
-<a name="l00049"></a>00049 
-<a name="l00057"></a>00057 <span class="keywordtype">int</span> <a class="code" href="group__cimunit__barrier.html#ga725c2e64e984f6beeae709b2305d2605">cimunit_barrier_destroy</a>(<a class="code" href="structcimunit__barrier.html" title="Structure containing the data needed to support the barrier.">cimunit_barrier_t</a> *barrier);
-<a name="l00058"></a>00058 
-<a name="l00064"></a>00064 <span class="keywordtype">void</span> <a class="code" href="group__cimunit__barrier.html#ga872b8d321731d97d2023530c2c33acd8">cimunit_barrier_wait</a>(<a class="code" href="structcimunit__barrier.html" title="Structure containing the data needed to support the barrier.">cimunit_barrier_t</a> *barrier);
+<a name="l00048"></a>00048 
+<a name="l00055"></a>00055 <span class="keywordtype">int</span> <a class="code" href="group__cimunit__barrier.html#gad77db95cf61e7181ff173daf3cc5bd3a" title="Create a new barrier.">cimunit_barrier_init</a>(<a class="code" href="structcimunit__barrier__pthread.html" title="Pthreads barrier structure.">cimunit_barrier_t</a> *barrier);
+<a name="l00056"></a>00056 
+<a name="l00064"></a>00064 <span class="keywordtype">int</span> <a class="code" href="group__cimunit__barrier.html#ga725c2e64e984f6beeae709b2305d2605" title="Destroy a barrier.">cimunit_barrier_destroy</a>(<a class="code" href="structcimunit__barrier__pthread.html" title="Pthreads barrier structure.">cimunit_barrier_t</a> *barrier);
 <a name="l00065"></a>00065 
-<a name="l00072"></a>00072 <span class="keywordtype">void</span> <a class="code" href="group__cimunit__barrier.html#ga7baecefdf81b77c2caf23e6830bfac20">cimunit_barrier_unlock</a>(<a class="code" href="structcimunit__barrier.html" title="Structure containing the data needed to support the barrier.">cimunit_barrier_t</a> *barrier);
-<a name="l00073"></a>00073 
-<a name="l00080"></a>00080 <span class="keywordtype">void</span> <a class="code" href="group__cimunit__barrier.html#gae1d2c9821f078d6fa29aa44ff4c2919c">cimunit_barrier_lock</a>(<a class="code" href="structcimunit__barrier.html" title="Structure containing the data needed to support the barrier.">cimunit_barrier_t</a> *barrier);
-<a name="l00081"></a>00081 
-<a name="l00083"></a>00083 
-<a name="l00084"></a>00084 <span class="preprocessor">#ifdef __cplusplus</span>
-<a name="l00085"></a>00085 <span class="preprocessor"></span>}
-<a name="l00086"></a>00086 <span class="preprocessor">#endif</span>
-<a name="l00087"></a>00087 <span class="preprocessor"></span>
-<a name="l00088"></a>00088 <span class="preprocessor">#endif // CIMUNIT_BARRIER_H</span>
+<a name="l00071"></a>00071 <span class="keywordtype">void</span> <a class="code" href="group__cimunit__barrier.html#ga872b8d321731d97d2023530c2c33acd8" title="Wait at the barrier until it is unlocked.">cimunit_barrier_wait</a>(<a class="code" href="structcimunit__barrier__pthread.html" title="Pthreads barrier structure.">cimunit_barrier_t</a> *barrier);
+<a name="l00072"></a>00072 
+<a name="l00079"></a>00079 <span class="keywordtype">void</span> <a class="code" href="group__cimunit__barrier.html#ga7baecefdf81b77c2caf23e6830bfac20" title="Unlock a barrier.">cimunit_barrier_unlock</a>(<a class="code" href="structcimunit__barrier__pthread.html" title="Pthreads barrier structure.">cimunit_barrier_t</a> *barrier);
+<a name="l00080"></a>00080 
+<a name="l00087"></a>00087 <span class="keywordtype">void</span> <a class="code" href="group__cimunit__barrier.html#gae1d2c9821f078d6fa29aa44ff4c2919c" title="Lock a barrier.">cimunit_barrier_lock</a>(<a class="code" href="structcimunit__barrier__pthread.html" title="Pthreads barrier structure.">cimunit_barrier_t</a> *barrier);
+<a name="l00088"></a>00088 
+<a name="l00090"></a>00090 
+<a name="l00091"></a>00091 <span class="preprocessor">#ifdef __cplusplus</span>
+<a name="l00092"></a>00092 <span class="preprocessor"></span>}
+<a name="l00093"></a>00093 <span class="preprocessor">#endif</span>
+<a name="l00094"></a>00094 <span class="preprocessor"></span>
+<a name="l00095"></a>00095 <span class="preprocessor">#endif // CIMUNIT_BARRIER_H</span>
 </pre></div></div>
 </div>
 

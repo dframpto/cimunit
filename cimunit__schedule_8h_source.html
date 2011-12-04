@@ -60,7 +60,7 @@
 <a name="l00036"></a>00036 
 <a name="l00039"></a>00039 
 <a name="l00041"></a><a class="code" href="structcimunit__schedule.html">00041</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structcimunit__schedule.html" title="Structure use to define a CIMUnit schedule.">cimunit_schedule</a> {
-<a name="l00043"></a><a class="code" href="structcimunit__schedule.html#aaad745fdf29f82bf36d0a42190671150">00043</a>     <a class="code" href="cimunit__mutex__pthread_8h.html#a55879c2113e9a2074ebbb10f19952ba7">cimunit_mutex_t</a> <a class="code" href="structcimunit__schedule.html#aaad745fdf29f82bf36d0a42190671150" title="Mutex to synchronize operations on the schedule object.">mutex</a>;
+<a name="l00043"></a><a class="code" href="structcimunit__schedule.html#aaad745fdf29f82bf36d0a42190671150">00043</a>     <a class="code" href="group__cimunit__mutex.html#ga55879c2113e9a2074ebbb10f19952ba7" title="Concrete type for mutex under pthread.">cimunit_mutex_t</a> <a class="code" href="structcimunit__schedule.html#aaad745fdf29f82bf36d0a42190671150" title="Mutex to synchronize operations on the schedule object.">mutex</a>;
 <a name="l00044"></a>00044     
 <a name="l00046"></a><a class="code" href="structcimunit__schedule.html#a3b856c16970dffad6a99fc1310fd1094">00046</a>     <a class="code" href="structcimunit__event__list.html" title="Structure which maintains a list of events.">cimunit_event_list_t</a> *<a class="code" href="structcimunit__schedule.html#a3b856c16970dffad6a99fc1310fd1094" title="List of events involved in the schedule.">event_list</a>;
 <a name="l00047"></a>00047     
@@ -100,12 +100,12 @@
 <a name="l00108"></a>00108 
 <a name="l00109"></a>00109 
 <a name="l00115"></a>00115 <span class="keywordtype">void</span> <a class="code" href="group__cimunit__schedule.html#gaffbd81edf07740fec1021231b9e09d9a">cimunit_schedule_set_thread_name</a>(<a class="code" href="structcimunit__schedule.html" title="Structure use to define a CIMUnit schedule.">cimunit_schedule_t</a> *schedule,
-<a name="l00116"></a>00116                                       <a class="code" href="cimunit__thread__pthread_8h.html#a2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a> thread,
+<a name="l00116"></a>00116                                       <a class="code" href="group__cimunit__thread.html#ga2fc2dc9efa757387178abb66b0d15c44" title="Pthread implementation of a thread ID.">cimunit_thread_t</a> thread,
 <a name="l00117"></a>00117                                       <span class="keyword">const</span> <span class="keywordtype">char</span> *threadName);
 <a name="l00118"></a>00118 
 <a name="l00119"></a>00119 
 <a name="l00125"></a>00125 <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="group__cimunit__schedule.html#ga716f7c2a8496e2f1e362249ded8cfb64">cimunit_schedule_get_thread_name</a>(<a class="code" href="structcimunit__schedule.html" title="Structure use to define a CIMUnit schedule.">cimunit_schedule_t</a> *schedule,
-<a name="l00126"></a>00126                                              <a class="code" href="cimunit__thread__pthread_8h.html#a2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a> thread);
+<a name="l00126"></a>00126                                              <a class="code" href="group__cimunit__thread.html#ga2fc2dc9efa757387178abb66b0d15c44" title="Pthread implementation of a thread ID.">cimunit_thread_t</a> thread);
 <a name="l00127"></a>00127 
 <a name="l00129"></a>00129 
 <a name="l00130"></a>00130 <span class="preprocessor">#ifdef __cplusplus</span>

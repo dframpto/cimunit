@@ -44,13 +44,23 @@
 Typedefs</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef void *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cimunit__thread.html#ga6b3a63dcae9ebbb440ff6ced571415bc">cimunit_task_entry_t</a> )(void *)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Prototype for a thread entry point.  <a href="#ga6b3a63dcae9ebbb440ff6ced571415bc"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef pthread_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cimunit__thread.html#ga2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Pthread implementation of a thread ID.  <a href="#ga2fc2dc9efa757387178abb66b0d15c44"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cimunit__thread.html#ga10d87991534873279bf4eacf6e308244">cimunit_thread_t</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">VxWorks implementation of a thread ID.  <a href="#ga10d87991534873279bf4eacf6e308244"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cimunit__thread.html#ga8e3c12f8934aa233bec75df29622315d">cimunit_thread_create</a> (<a class="el" href="cimunit__thread__pthread_8h.html#a2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a> *RESTRICT thread, <a class="el" href="group__cimunit__thread.html#ga6b3a63dcae9ebbb440ff6ced571415bc">cimunit_task_entry_t</a> function, void *RESTRICT arg)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cimunit__thread.html#gae98228a2957bbf80ee622353cc0ac1f2">cimunit_thread_join</a> (<a class="el" href="cimunit__thread__pthread_8h.html#a2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a> thread, void **value_ptr)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="cimunit__thread__pthread_8h.html#a2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cimunit__thread.html#gac9b57c4e9446524146f04f224bd4f684">cimunit_thread_self</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cimunit__thread.html#ga8e3c12f8934aa233bec75df29622315d">cimunit_thread_create</a> (<a class="el" href="group__cimunit__thread.html#ga2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a> *RESTRICT thread, <a class="el" href="group__cimunit__thread.html#ga6b3a63dcae9ebbb440ff6ced571415bc">cimunit_task_entry_t</a> function, void *RESTRICT arg)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new thread.  <a href="#ga8e3c12f8934aa233bec75df29622315d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cimunit__thread.html#gae98228a2957bbf80ee622353cc0ac1f2">cimunit_thread_join</a> (<a class="el" href="group__cimunit__thread.html#ga2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a> thread, void **value_ptr)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Wait for thread to exit.  <a href="#gae98228a2957bbf80ee622353cc0ac1f2"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__cimunit__thread.html#ga2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cimunit__thread.html#gac9b57c4e9446524146f04f224bd4f684">cimunit_thread_self</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get identifier of current thread.  <a href="#gac9b57c4e9446524146f04f224bd4f684"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cimunit__thread.html#ga4f034ea379073c1aa37f556937517efe">cimunit_thread_sleep</a> (int time)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Place thread to sleep.  <a href="#ga4f034ea379073c1aa37f556937517efe"></a><br/></td></tr>
 </table>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<p>The cimunit_thread module is used to support the unit tests across the various platforms that support CIMUnit. This abstraction allows the unit tests to create threads to support testing the capabilities of CIMUnit so that it can be validated when changed or ported to new operating systems. </p>
 <hr/><h2>Typedef Documentation</h2>
 <a class="anchor" id="ga6b3a63dcae9ebbb440ff6ced571415bc"></a><!-- doxytag: member="cimunit_thread.h::cimunit_task_entry_t" ref="ga6b3a63dcae9ebbb440ff6ced571415bc" args=")(void *)" -->
 <div class="memitem">
@@ -65,7 +75,41 @@ Functions</h2></td></tr>
 
 <p>Prototype for a thread entry point. </p>
 
-<p>Definition at line <a class="el" href="cimunit__thread_8h_source.html#l00044">44</a> of file <a class="el" href="cimunit__thread_8h_source.html">cimunit_thread.h</a>.</p>
+<p>Definition at line <a class="el" href="cimunit__thread_8h_source.html#l00049">49</a> of file <a class="el" href="cimunit__thread_8h_source.html">cimunit_thread.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga10d87991534873279bf4eacf6e308244"></a><!-- doxytag: member="cimunit_thread_vxworks.h::cimunit_thread_t" ref="ga10d87991534873279bf4eacf6e308244" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef int <a class="el" href="group__cimunit__thread.html#ga2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>VxWorks implementation of a thread ID. </p>
+
+<p>Definition at line <a class="el" href="cimunit__thread__vxworks_8h_source.html#l00032">32</a> of file <a class="el" href="cimunit__thread__vxworks_8h_source.html">cimunit_thread_vxworks.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga2fc2dc9efa757387178abb66b0d15c44"></a><!-- doxytag: member="cimunit_thread_pthread.h::cimunit_thread_t" ref="ga2fc2dc9efa757387178abb66b0d15c44" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef pthread_t <a class="el" href="group__cimunit__thread.html#ga2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Pthread implementation of a thread ID. </p>
+
+<p>Definition at line <a class="el" href="cimunit__thread__pthread_8h_source.html#l00034">34</a> of file <a class="el" href="cimunit__thread__pthread_8h_source.html">cimunit_thread_pthread.h</a>.</p>
 
 </div>
 </div>
@@ -77,7 +121,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int cimunit_thread_create </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="cimunit__thread__pthread_8h.html#a2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a> *RESTRICT&#160;</td>
+          <td class="paramtype"><a class="el" href="group__cimunit__thread.html#ga2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a> *RESTRICT&#160;</td>
           <td class="paramname"><em>thread</em>, </td>
         </tr>
         <tr>
@@ -100,7 +144,9 @@ Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Create a new thread </p>
+
+<p>Create a new thread. </p>
+<p>This method creates and activates a new thread. The thread will be scheduled per the operating systems scheduling rules.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">thread</td><td>- thread identifier of newly created thread </td></tr>
@@ -111,18 +157,7 @@ Functions</h2></td></tr>
 </dl>
 
 <p>Definition at line <a class="el" href="cimunit__thread__pthread_8c_source.html#l00026">26</a> of file <a class="el" href="cimunit__thread__pthread_8c_source.html">cimunit_thread_pthread.c</a>.</p>
-<div class="fragment"><pre class="fragment">{
-  <span class="keywordtype">int</span> result;
 
-  pthread_attr_t attr;
-  pthread_attr_init(&amp;attr);
-  pthread_attr_setdetachstate(&amp;attr, PTHREAD_CREATE_JOINABLE);
-  result = pthread_create(thread, &amp;attr, function, arg);
-  pthread_attr_destroy(&amp;attr);
-
-  <span class="keywordflow">return</span> result;
-}
-</pre></div>
 </div>
 </div>
 <a class="anchor" id="gae98228a2957bbf80ee622353cc0ac1f2"></a><!-- doxytag: member="cimunit_thread.h::cimunit_thread_join" ref="gae98228a2957bbf80ee622353cc0ac1f2" args="(cimunit_thread_t thread, void **value_ptr)" -->
@@ -132,7 +167,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int cimunit_thread_join </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="cimunit__thread__pthread_8h.html#a2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="group__cimunit__thread.html#ga2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a>&#160;</td>
           <td class="paramname"><em>thread</em>, </td>
         </tr>
         <tr>
@@ -149,7 +184,9 @@ Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Wait until the specified thread completes execution </p>
+
+<p>Wait for thread to exit. </p>
+<p>Wait until the specified thread completes execution</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">thread</td><td>- thread to wait for </td></tr>
@@ -159,10 +196,7 @@ Functions</h2></td></tr>
 </dl>
 
 <p>Definition at line <a class="el" href="cimunit__thread__pthread_8c_source.html#l00042">42</a> of file <a class="el" href="cimunit__thread__pthread_8c_source.html">cimunit_thread_pthread.c</a>.</p>
-<div class="fragment"><pre class="fragment">                                                                  {
-  <span class="keywordflow">return</span> pthread_join(thread, value_ptr);
-}
-</pre></div>
+
 </div>
 </div>
 <a class="anchor" id="gac9b57c4e9446524146f04f224bd4f684"></a><!-- doxytag: member="cimunit_thread.h::cimunit_thread_self" ref="gac9b57c4e9446524146f04f224bd4f684" args="()" -->
@@ -170,7 +204,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="cimunit__thread__pthread_8h.html#a2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a> cimunit_thread_self </td>
+          <td class="memname"><a class="el" href="group__cimunit__thread.html#ga2fc2dc9efa757387178abb66b0d15c44">cimunit_thread_t</a> cimunit_thread_self </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -178,14 +212,13 @@ Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Return the thread identifier of the currently running thread </p>
+
+<p>Get identifier of current thread. </p>
+<p>Return the thread identifier of the currently running thread</p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>thread identifier </dd></dl>
 
 <p>Definition at line <a class="el" href="cimunit__thread__pthread_8c_source.html#l00046">46</a> of file <a class="el" href="cimunit__thread__pthread_8c_source.html">cimunit_thread_pthread.c</a>.</p>
-<div class="fragment"><pre class="fragment">                                      {
-  <span class="keywordflow">return</span> pthread_self();
-}
-</pre></div>
+
 </div>
 </div>
 <a class="anchor" id="ga4f034ea379073c1aa37f556937517efe"></a><!-- doxytag: member="cimunit_thread.h::cimunit_thread_sleep" ref="ga4f034ea379073c1aa37f556937517efe" args="(int time)" -->
@@ -202,7 +235,9 @@ Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Put a thread to sleep for a fixed period of time </p>
+
+<p>Place thread to sleep. </p>
+<p>Put a thread to sleep for a minimum amount of time</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">time</td><td>- sleep time in milliseconds </td></tr>
@@ -211,10 +246,7 @@ Functions</h2></td></tr>
 </dl>
 
 <p>Definition at line <a class="el" href="cimunit__thread__pthread_8c_source.html#l00050">50</a> of file <a class="el" href="cimunit__thread__pthread_8c_source.html">cimunit_thread_pthread.c</a>.</p>
-<div class="fragment"><pre class="fragment">                                    {
-    usleep(time);
-}
-</pre></div>
+
 </div>
 </div>
 </div>
