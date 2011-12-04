@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>CIMUnit: Related Pages</title>
+<title>CIMUnit: Basic Operation of CIMUnit</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -33,26 +33,32 @@
 </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">Related Pages</div>  </div>
+<div class="title">Basic Operation of CIMUnit </div>  </div>
 </div>
 <div class="contents">
-<div class="textblock">Here is a list of all related documentation pages:</div><ul>
-<li><a class="el" href="basics.html">Basic Operation of CIMUnit</a>
+<div class="textblock"><h2><a class="anchor" id="basics_structure"></a>
+Structure of CIMUnit</h2>
+<p>CIMUnit is composed of roughly three separate pieces:</p>
+<ul>
+<li>Operating system specific components<ul>
+<li>Abstracts operating system concepts to allow CIMUnit to be easily ported</li>
+</ul>
 </li>
-<li><a class="el" href="build.html">How to Build and Test CIMUnit</a>
+<li>Grammar parsing<ul>
+<li>Serves two purposes</li>
+<li>Parses the CIMUnit schedule to create events and to connect action events to condition events.</li>
+<li>Parses the CIMUnit schedule each time a condition event is fired to determine if a barrier should be unlocked.</li>
+</ul>
 </li>
-<li><a class="el" href="comparison.html">Comparison of CIMUnit to IMUnit</a>
-</li>
-<li><a class="el" href="License.html">CIMUnit License</a>
-</li>
-<li><a class="el" href="manual.html">How to Use CIMUnit</a>
-</li>
-<li><a class="el" href="porting.html">Porting CIMUnit to a New Operating System</a>
-</li>
-<li><a class="el" href="todo.html">Todo List</a>
+<li>Common components<ul>
+<li>Manages bookkeeping operations such as lists of events, and the interaction of events.</li>
+</ul>
 </li>
 </ul>
-</div>
+<h2><a class="anchor" id="basics_operation"></a>
+Operation of CIMUnit</h2>
+<p>The <a class="el" href="structcimunit__schedule.html" title="Structure use to define a CIMUnit schedule.">cimunit_schedule</a> object </p>
+</div></div>
 
 
 <hr class="footer"/><address class="footer"><small>
