@@ -14,7 +14,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">CIMUnit</div>
+   <div id="projectname">CIMUnit&#160;<span id="projectnumber">1.0</span></div>
   </td>
  </tr>
  </tbody>
@@ -70,6 +70,11 @@
 <dl>
 <dt>Global <a class="el" href="group__cimunit__event__table.html#gacba93a9086c5439126d91c7e0e969b66">cimunit_find_event_in_table_on_thread</a> (const cimunit_event_table_t *event_table, const char *event_name, const char *thread_name, cimunit_event_table_entry_t **found_event) </dt>
 <dd>actually return the correct error code if an error happend. </dd>
+</dl>
+<p><a class="anchor" id="_todo000010"></a> </p>
+<dl>
+<dt>Global <a class="el" href="group__cimunit.html#ga8d5cdd678383afa1b8c0439025339887">CIMUNIT_SCHEDULE</a> (schedule) </dt>
+<dd>Add code to free the previous schedule, while ensuring that any references to schedule items are not freed until properly released. The destroy code that was here was removed as there was a race condition that after firing an event in a low priority thread, the higher priority thread controlling the testing began a new test which defined a new schedule. The fire actions from the previous test hadn't been completed and accessed memory that was no longer valid. </dd>
 </dl>
 </div></div>
 

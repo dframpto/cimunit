@@ -14,7 +14,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">CIMUnit</div>
+   <div id="projectname">CIMUnit&#160;<span id="projectnumber">1.0</span></div>
   </td>
  </tr>
  </tbody>
@@ -57,7 +57,10 @@ Structure of CIMUnit</h2>
 </ul>
 <h2><a class="anchor" id="basics_operation"></a>
 Operation of CIMUnit</h2>
-<p>The <a class="el" href="structcimunit__schedule.html" title="Structure use to define a CIMUnit schedule.">cimunit_schedule</a> object </p>
+<p>The <a class="el" href="structcimunit__schedule.html" title="Structure use to define a CIMUnit schedule.">cimunit_schedule</a> object maintains a list of all events associated with the schedule, the list of events fired while the schedule is active and a list of threads that have been named through CIMUnit.</p>
+<p>When the schedule string is parsed, it creates an event object for each event found in the schedule. An event is marked as an action event if it shows up on the right side of the -&gt; operator. Events objects are created for every unique event in the schedule. A unique event is determined by the combination of the event name and the thread name, if there is on. Once the schedule has been parsed, the test code can begin firing events.</p>
+<p>When events are fired, they are first marked in an internal list as having fired. The schedule is then parsed to see if the event was a condition event for any action events, and if so, does that action event's barrier get unlocked. Then, if the event is an action event, it waits on its barrier.</p>
+<p>The operation of CIMUnit specifies that action events may pend. Therefore we determined that that best solution was to have a blocking construct that allowed multiple threads to block on the same object and all be released at the same time. This lead to the creation of cimunit_barrier, and the instantiation of a barrier for each action event. This decision made it simple to move from supporting simple schedules such as a-&gt;b,b-&gt;c to more complex schedules such as (a &amp;&amp; b)-&gt;d or b-&gt;a@x,c-&gt;a@y, a-&gt;e. In the latter case, the events a, a@x, and a@y are separate events. The firing of any a event causes event a to be marked as having fired, but events a@x and a@y are only fired if event a is fired from thread x and y respectivly. Some complexity exists to manage the overlap between named and unnamed events, but this isn't significant. </p>
 </div></div>
 
 

@@ -14,7 +14,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">CIMUnit</div>
+   <div id="projectname">CIMUnit&#160;<span id="projectnumber">1.0</span></div>
   </td>
  </tr>
  </tbody>
@@ -41,8 +41,8 @@
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="define-members"></a>
 Defines</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cimunit.html#ga8d5cdd678383afa1b8c0439025339887">CIMUNIT_SCHEDULE</a>(schedule)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cimunit.html#gac71b8001526bea0ad3cec09dacec617e">CIMUNIT_FIRE</a>(eventName)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cimunit.html#ga8d5cdd678383afa1b8c0439025339887">CIMUNIT_SCHEDULE</a>(schedule)&#160;&#160;&#160;<a class="el" href="cimunit_8h.html#a80512b99c372fa4285f2443119edd276">g_cimunit_default_schedule</a> = cimunit_schedule_parse(schedule)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cimunit.html#gac71b8001526bea0ad3cec09dacec617e">CIMUNIT_FIRE</a>(eventName)&#160;&#160;&#160;cimunit_schedule_fire(<a class="el" href="cimunit_8h.html#a80512b99c372fa4285f2443119edd276">g_cimunit_default_schedule</a>, eventName)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cimunit.html#ga9f9052499547cd765fdf63f611135a7b">CIMUNIT_THREAD_NAME</a>(threadName)</td></tr>
 </table>
 <hr/><h2>Define Documentation</h2>
@@ -55,17 +55,16 @@ Defines</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">eventName</td><td>)</td>
-          <td></td>
+          <td>&#160;&#160;&#160;cimunit_schedule_fire(<a class="el" href="cimunit_8h.html#a80512b99c372fa4285f2443119edd276">g_cimunit_default_schedule</a>, eventName)</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-<b>Value:</b><div class="fragment"><pre class="fragment">printf(<span class="stringliteral">&quot;CIMUNIT_FIRE(%s)\n&quot;</span>, eventName); \
-    <a class="code" href="group__cimunit__schedule.html#ga51236ae0abd30f98baa140eed1ab7a3c">cimunit_schedule_fire</a>(<a class="code" href="cimunit_8c.html#a80512b99c372fa4285f2443119edd276" title="Global CIMUnit variable used by the CIMUnit test macros.">g_cimunit_default_schedule</a>, eventName)
-</pre></div><p>Fire a CIMUnit event</p>
+<p>Fire a CIMUnit event</p>
 <p>This differs from cimunit_event_fire as it uses a global variable to simplify test development. </p>
-
-<p>Definition at line <a class="el" href="cimunit_8h_source.html#l00053">53</a> of file <a class="el" href="cimunit_8h_source.html">cimunit.h</a>.</p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="vxworks_example_8cpp-example.html#a0">vxworks_example.cpp</a>.</dd>
+</dl>
+<p>Definition at line <a class="el" href="cimunit_8h_source.html#l00057">57</a> of file <a class="el" href="cimunit_8h_source.html">cimunit.h</a>.</p>
 
 </div>
 </div>
@@ -78,20 +77,17 @@ Defines</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">schedule</td><td>)</td>
-          <td></td>
+          <td>&#160;&#160;&#160;<a class="el" href="cimunit_8h.html#a80512b99c372fa4285f2443119edd276">g_cimunit_default_schedule</a> = cimunit_schedule_parse(schedule)</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-<b>Value:</b><div class="fragment"><pre class="fragment"><span class="keywordflow">if</span> (<a class="code" href="cimunit_8c.html#a80512b99c372fa4285f2443119edd276" title="Global CIMUnit variable used by the CIMUnit test macros.">g_cimunit_default_schedule</a>) { \
-        <a class="code" href="group__cimunit__schedule.html#ga72f4771cf3b96241da1791e3fabb14b7" title="Destroy the schedule object and free memory.">cimunit_schedule_destroy</a>(<a class="code" href="cimunit_8c.html#a80512b99c372fa4285f2443119edd276" title="Global CIMUnit variable used by the CIMUnit test macros.">g_cimunit_default_schedule</a>); \
-    } \
-    printf(<span class="stringliteral">&quot;CIMUNIT_SCHEDULE(%s)\n&quot;</span>, schedule); \
-    <a class="code" href="cimunit_8c.html#a80512b99c372fa4285f2443119edd276" title="Global CIMUnit variable used by the CIMUnit test macros.">g_cimunit_default_schedule</a> = <a class="code" href="group__cimunit__schedule.html#ga61ff8f64cc0c3cda683e87e92043a73c">cimunit_schedule_parse</a>(schedule)
-</pre></div><p>Create a CIMUnit schedule</p>
+<p>Create a CIMUnit schedule</p>
 <p>This differs from cimunit_schedule_parse by using a global variable that works with the other CIMUnit macros to simplify test development in an environment where only one test will be run at a time. </p>
-
-<p>Definition at line <a class="el" href="cimunit_8h_source.html#l00041">41</a> of file <a class="el" href="cimunit_8h_source.html">cimunit.h</a>.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000010">Todo:</a></b></dt><dd>Add code to free the previous schedule, while ensuring that any references to schedule items are not freed until properly released. The destroy code that was here was removed as there was a race condition that after firing an event in a low priority thread, the higher priority thread controlling the testing began a new test which defined a new schedule. The fire actions from the previous test hadn't been completed and accessed memory that was no longer valid. </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="vxworks_example_8cpp-example.html#a1">vxworks_example.cpp</a>.</dd>
+</dl>
+<p>Definition at line <a class="el" href="cimunit_8h_source.html#l00049">49</a> of file <a class="el" href="cimunit_8h_source.html">cimunit.h</a>.</p>
 
 </div>
 </div>
@@ -115,7 +111,7 @@ Defines</h2></td></tr>
 </pre></div><p>Name a thread in the schedule</p>
 <p>This macro gives a name to the currently executing thread </p>
 
-<p>Definition at line <a class="el" href="cimunit_8h_source.html#l00061">61</a> of file <a class="el" href="cimunit_8h_source.html">cimunit.h</a>.</p>
+<p>Definition at line <a class="el" href="cimunit_8h_source.html#l00064">64</a> of file <a class="el" href="cimunit_8h_source.html">cimunit.h</a>.</p>
 
 </div>
 </div>
