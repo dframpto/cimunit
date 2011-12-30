@@ -75,3 +75,13 @@ const struct cimunit_event_list *cimunit_event_get_action_list(
   cimunit_event_t *event) {
     return event->action_events;
 }
+
+
+BOOL cimunit_event_has_fired(cimunit_event_t *event) {
+    return event->has_fired;
+}
+
+
+void cimunit_event_set_fired(cimunit_event_t *event) {
+    event->has_fired = TRUE;
+}

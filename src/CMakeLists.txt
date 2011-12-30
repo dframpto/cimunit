@@ -25,7 +25,6 @@ set(CIMUNIT_SRC
   cimunit_mutex_pthread.c
   cimunit_schedule.c
   cimunit_thread_pthread.c
-  cimunit_event_table.c
   cimunit_thread_table.c
   ${FLEX_create_events_lexer_OUTPUTS}
   ${BISON_create_events_grammar_OUTPUTS}

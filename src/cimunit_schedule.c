@@ -30,7 +30,6 @@ cimunit_schedule_t *cimunit_schedule_init() {
     cimunit_mutex_init(&schedule->mutex, NULL);
     cimunit_thread_table_init(&(schedule->thread_table)); 
     schedule->event_list = cimunit_event_list_init();
-    cimunit_event_table_init(&schedule->fired_event_list, &(schedule->thread_table));
     schedule->schedule_string = NULL;
 
     return schedule;
@@ -66,6 +65,14 @@ BOOL cimunit_schedule_fire(struct cimunit_schedule *schedule,
     thread_name = cimunit_schedule_get_thread_name(schedule,
                                                    cimunit_thread_self());
 
+    // Find and indicate that the thread independent version of the event has
+    // fired.
+    event = cimunit_event_list_find(schedule->event_list, eventName);
+    if (event) {
+        cimunit_event_set_fired(event);
+    }
+
+    // Attempt to find a thread specific version
     event = cimunit_event_list_find_with_thread(schedule->event_list,
                                                 eventName, thread_name); 
       
@@ -73,8 +80,9 @@ BOOL cimunit_schedule_fire(struct cimunit_schedule *schedule,
         event = cimunit_event_list_find(schedule->event_list, eventName);
     }
     if (event) {
-        cimunit_add_event_to_table(&schedule->fired_event_list, event, NULL);
-
+        // Indicate that the thread has been fired
+        cimunit_event_set_fired(event);
+        
         next_action = cimunit_event_get_action_list(event);
       
         // When the event is fired, open the barriers associated with this event.

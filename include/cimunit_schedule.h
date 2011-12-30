@@ -23,10 +23,10 @@
 
 #include "cimunit_event.h"
 #include "cimunit_event_list.h"
-#include "cimunit_event_table.h"
 #include "cimunit_mutex.h"
 #include "cimunit_platform.h"
 #include "cimunit_thread.h"
+#include "cimunit_thread_table.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -45,9 +45,6 @@ typedef struct cimunit_schedule {
     /// List of events involved in the schedule
     cimunit_event_list_t *event_list;
     
-    /// Structure containing the status of fired events
-    cimunit_event_table_t fired_event_list;
-
     ///Table used for thread lookups
     cimunit_thread_table_t thread_table;
     

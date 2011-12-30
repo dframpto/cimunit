@@ -26,13 +26,12 @@
 
 #include "cimunit_platform.h"
 #include "cimunit_event_list.h"
-#include "cimunit_event_table.h"
 #include "cimunit_schedule.h"
 
 
 // Defines
 extern int parse_events_lex_destroy(void); // From parse_events.l
-extern int parse_events_parse(struct cimunit_event_table *fired_event_list,
+extern int parse_events_parse(struct cimunit_event_list *event_list,
                               const char *action_event,
                               const char *thread,
                               BOOL *parse_result); // From parse_events.y
@@ -44,7 +43,7 @@ extern int parse_events_lex (void); // From parse_events.l
 ///
 /// \param event_list - event list passed to the parser
 /// \param str - error string
-void parse_events_error(struct cimunit_event_table *fired_event_list,
+void parse_events_error(struct cimunit_event_list *event_list,
                         const char *action_event, const char *thread,
                         BOOL *parse_result, const char *str)
 {
@@ -81,7 +80,7 @@ BOOL cimunit_schedule_parse_runtime(cimunit_schedule_t *schedule,
     cimunit_mutex_lock(cimunit_parse_event_mutex);   
     parse_events_lex_destroy();
     parse_events__scan_string(schedule->schedule_string);
-    parse_events_parse(&schedule->fired_event_list, action_event, thread, &result);
+    parse_events_parse(schedule->event_list, action_event, thread, &result);
     cimunit_mutex_unlock(cimunit_parse_event_mutex);   
     
     return result;
@@ -100,7 +99,7 @@ BOOL cimunit_schedule_parse_runtime(cimunit_schedule_t *schedule,
 
 %name-prefix "parse_events_"
 
-%parse-param {struct cimunit_event_table *fired_event_list}
+%parse-param {struct cimunit_event_list *event_list}
 %parse-param {const char *action_event}
 %parse-param {const char *thread}
 %parse-param {BOOL *parse_result}
@@ -148,19 +147,25 @@ basicEvent:
     NAME
     {
         // Lookup event name in the fired event list
-        cimunit_event_table_entry_t *event = NULL;
-        cimunit_find_event_in_table(fired_event_list, $1, &event);
+        cimunit_event_t *event =  cimunit_event_list_find(event_list, $1);
+        if (event) {
+          $$ = cimunit_event_has_fired(event);
+        } else {
+          $$ = FALSE;
+        }
         free($1);
-        $$ = (NULL != event);
     }
     | NAME SYMBOL_AT NAME{
-        // Lookup event name in the fired event list
-        cimunit_event_table_entry_t *event = NULL;
-        cimunit_find_event_in_table_on_thread(
-          fired_event_list, $1, $3, &event);
+        // Lookup event name in the fired event list with the thread
+        cimunit_event_t *event =  cimunit_event_list_find_with_thread(
+                                   event_list, $1, $3);
+        if (event) {
+          $$ = cimunit_event_has_fired(event);
+        } else {
+          $$ = FALSE;
+        }
         free($1);
         free($3);
-        $$ = (NULL != event);
     }
     ;
 
@@ -177,7 +182,7 @@ basicCondition:
     }
     | blockEvent
     {
-        yyerror(fired_event_list, thread, action_event, parse_result,
+        yyerror(event_list, thread, action_event, parse_result,
                 "Blocking events are not supported");
         YYERROR;
     }

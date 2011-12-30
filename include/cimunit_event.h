@@ -56,6 +56,9 @@ typedef struct cimunit_event {
     /// Is this event an action event?  If so, it may block when it is
     /// fired.  If not, it will not block.
     BOOL is_action;
+    
+    /// Has this event been fired?
+    BOOL has_fired;
 } cimunit_event_t;
 
 
@@ -96,6 +99,18 @@ void cimunit_event_add_action(cimunit_event_t *condition,
 /// \return the list of action event dependent on this condition event
 const struct cimunit_event_list *cimunit_event_get_action_list(
   cimunit_event_t *event);
+
+
+/// Check if the event has fired
+///
+/// \param event - event whose fired status is being checked
+/// \return TRUE if the event has been fired, else FALSE
+BOOL cimunit_event_has_fired(cimunit_event_t *event);
+
+/// Indicate that the event has fired
+///
+/// \param event - event that is being fired
+void cimunit_event_set_fired(cimunit_event_t *event);
 
 /// @}
 

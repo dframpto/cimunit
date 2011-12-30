@@ -34,9 +34,10 @@ static void test_parse_event_single(void)
 
     CU_ASSERT_FALSE(cimunit_schedule_parse_runtime(schedule, "x", NULL));
 
-    /// - Add event to the fired event list
+    /// - Mark event as having been fired
     event = cimunit_event_list_find(schedule->event_list, "a");
-    cimunit_add_event_to_table(&schedule->fired_event_list, event, NULL);
+    CU_ASSERT_PTR_NOT_NULL(event);
+    cimunit_event_set_fired(event);
 
     CU_ASSERT_TRUE(cimunit_schedule_parse_runtime(schedule, "x", NULL));
     }
